@@ -1,42 +1,61 @@
 package battleship.gui;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Cell;
-import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Board extends Application {
 
-    private Image backgroundBoard = new Image("file:src/main/resources/img/background.jpg");
+    private GridPane playerShipsBoard;
+
+    //  private Image backgroundBoard = new Image("file:src/main/resources/img/images.jpeg");
 
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(Board.class, args);
     }
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/battleshipBoard.fxml"));
+        primaryStage.setTitle("Battleship");
 
-        BackgroundSize backgroundSize = new BackgroundSize(1200, 800, true, true, true, false);
+
+
+
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
+       /* BackgroundSize backgroundSize = new BackgroundSize(1200, 800, true, true, true, false);
         BackgroundImage backgroundImage = new BackgroundImage(backgroundBoard, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
+
+
         Background background = new Background(backgroundImage);
+
+        Parent root= FXMLLoader.load(getClass().getResource("battleshipBoard.fxml"));
+
 
         GridPane grid = new GridPane();
         grid.setBackground(background);
 
         Scene scene = new Scene(grid, 1200, 900);
 
+
+
+
+
         primaryStage.setTitle("Battleship");
         primaryStage.setScene(scene);
         primaryStage.show();
-
+*/
 
 
 
