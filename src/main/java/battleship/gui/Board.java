@@ -77,19 +77,21 @@ public class Board extends Application {
 
         Pane mainPane = new Pane();
         GridPane playerShipsAttackBoard = new GridPane();
+        GridPane playerShipsBoard = new GridPane();
+        GridPane computerShipsBoard = new GridPane();
 
         mainPane.prefHeight(877);
-        mainPane.prefWidth(1341.0);
+        mainPane.prefWidth(1341);
 
         playerShipsAttackBoard.setLayoutX(705.0);
         playerShipsAttackBoard.setLayoutY(384.0);
         playerShipsAttackBoard.prefHeight(437.0);
         playerShipsAttackBoard.prefWidth(491.0);
         playerShipsAttackBoard.gridLinesVisibleProperty().setValue(true);
-       // playerShipsAttackBoard.setAlignment(Pos.BASELINE_LEFT);
         playerShipsAttackBoard.setHgap(10);
         playerShipsAttackBoard.setVgap(10);
         playerShipsAttackBoard.setStyle("-fx-background-color: GREEN;");
+
 
 
         for(int i=0;i< 10;i++){
@@ -99,11 +101,56 @@ public class Board extends Application {
                 pane.setMaxHeight(100);
                 playerShipsAttackBoard.add(pane,i,j);
             }
+
         }
+
+
+        playerShipsBoard.setLayoutY(384);
+        playerShipsBoard.setLayoutX(107.0);
+        playerShipsBoard.prefHeight(437.0);
+        playerShipsBoard.prefWidth(491.0);
+        playerShipsBoard.gridLinesVisibleProperty().setValue(true);
+        playerShipsBoard.setHgap(10);
+        playerShipsBoard.setVgap(10);
+        playerShipsBoard.setStyle("-fx-background-color: BLUE;");
+
+
+        for(int i=0;i< 10;i++){
+            for(int j=0;j<10;j++){
+                Pane paneBoard = new Pane();
+                paneBoard.setMinWidth(10);
+                paneBoard.setMaxHeight(100);
+                playerShipsBoard.add(paneBoard,i,j);
+            }
+        }
+
+        computerShipsBoard.setLayoutY(0);
+        computerShipsBoard.setLayoutX(0);
+        computerShipsBoard.prefHeight(272);
+        computerShipsBoard.prefWidth(364);
+        computerShipsBoard.gridLinesVisibleProperty().setValue(true);
+        computerShipsBoard.setHgap(10);
+        computerShipsBoard.setVgap(10);
+        computerShipsBoard.setStyle("-fx-background-color: red;");
+
+        for(int i=0;i< 10;i++){
+            for(int j=0;j<10;j++){
+                Pane paneComputer = new Pane();
+                paneComputer.setMinWidth(10);
+                paneComputer.setMaxHeight(100);
+                playerShipsBoard.add(paneComputer,i,j);
+            }
+        }
+
+
+
 
         //playerShipsAttackBoard.setPadding(new Insets(250,250,250,250));
         mainPane.getChildren().add(playerShipsAttackBoard);
-        Scene scene = new Scene(mainPane, 1200,800);
+        mainPane.getChildren().add(playerShipsBoard);
+        mainPane.getChildren().add(computerShipsBoard);
+
+        Scene scene = new Scene(mainPane, 1400,800);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
