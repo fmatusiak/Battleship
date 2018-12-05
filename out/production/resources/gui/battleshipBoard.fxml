@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="877.0" prefWidth="1341.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/sand.jpg');" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BattleshipBoardController">
+<Pane id="mainPane" fx:id="mainMenuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="877.0" prefWidth="1341.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/sand.jpg');" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.BattleshipBoardController">
    <children>
-      <GridPane id="playerShipsBoard" gridLinesVisible="true" hgap="1.0" layoutX="107.0" layoutY="384.0" onMouseClicked="#mouseClick" prefHeight="437.0" prefWidth="491.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/background.jpg');" vgap="1.0">
+      <GridPane id="playerShipsBoard" fx:id="playerBoard" gridLinesVisible="true" hgap="1.0" layoutX="107.0" layoutY="384.0" prefHeight="437.0" prefWidth="491.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/background.jpg');" vgap="1.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,7 +36,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <GridPane id="playerShipsAttackBoard" gridLinesVisible="true" hgap="1.0" layoutX="705.0" layoutY="384.0" prefHeight="437.0" prefWidth="491.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/background.jpg');" vgap="1.0">
+      <GridPane id="playerShipsAttackBoard" fx:id="playerAttackBoard" gridLinesVisible="true" hgap="1.0" layoutX="705.0" layoutY="384.0" prefHeight="437.0" prefWidth="491.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/background.jpg');" vgap="1.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -62,7 +62,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <GridPane id="computerShipsBoard" gridLinesVisible="true" hgap="1.0" layoutX="769.0" layoutY="37.0" prefHeight="272.0" prefWidth="364.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/background.jpg');" vgap="1.0">
+      <GridPane id="computerShipsBoard" fx:id="computerBoard" gridLinesVisible="true" hgap="1.0" layoutX="769.0" layoutY="37.0" prefHeight="272.0" prefWidth="364.0" style="-fx-background-image: url('file:/media/elliot/Lokalny/projects_java/Battleship/src/main/resources/img/background.jpg');" vgap="1.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -88,17 +88,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Label layoutX="281.0" layoutY="291.0" text="Player">
+      <Label fx:id="playerTitle" layoutX="281.0" layoutY="291.0" text="Player">
          <font>
             <Font name="Gargi" size="50.0" />
          </font>
       </Label>
-      <Label layoutX="889.0" layoutY="7.0" text="Computer">
+      <Label fx:id="computerTitle" layoutX="889.0" layoutY="7.0" text="Computer">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <VBox layoutX="624.0" layoutY="384.0" prefHeight="437.0" prefWidth="59.0">
+      <VBox fx:id="shipsModel" layoutX="624.0" layoutY="384.0" prefHeight="437.0" prefWidth="59.0">
          <children>
             <Pane prefHeight="179.0" prefWidth="100.0" style="-fx-background-color: SILVER;" />
             <Pane prefHeight="130.0" prefWidth="100.0" style="-fx-background-color: BLACK;" />
@@ -106,7 +106,7 @@
             <Pane prefHeight="41.0" prefWidth="100.0" style="-fx-background-color: RED;" />
          </children>
       </VBox>
-      <Label layoutX="612.0" layoutY="338.0" text="Ships">
+      <Label fx:id="shipsTitle" layoutX="612.0" layoutY="338.0" text="Ships">
          <font>
             <Font size="31.0" />
          </font>

@@ -1,5 +1,7 @@
 package controller;
 
+import battleship.board.Point;
+import battleship.board.ServicePoint;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -7,29 +9,71 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
 
-    @FXML
-    private GridPane playerShipsAttackBoard;
-
+    ServicePoint servicePoint = new ServicePoint();
 
     @FXML
-    private void mouseClick(MouseEvent e) {
-        Node source = (Node) e.getSource();
+    private Pane mainMenuPane;
+
+    @FXML
+    private GridPane playerBoard;
+
+    @FXML
+    private GridPane playerAttackBoard;
+
+    @FXML
+    private GridPane computerBoard;
+
+    @FXML
+    private Label playerTitle;
+
+    @FXML
+    private Label computerTitle;
+
+    @FXML
+    private VBox shipsModel;
+
+    @FXML
+    private Label shipsTitle;
+
+    public void addPaneToGridPane(GridPane gridPane){
+        for(int i=0;i<10;i++){
+            for(int j=0;j<10;j++){
+                Pane pane = new Pane();
+                pane.setOnMouseClicked(e-> mouseClickOnGridPane(e));
+                gridPane.add(pane,i,j);
+            }
+        }
+    }
+
+    public void mouseClickOnGridPane(MouseEvent e) {
+
+        Node source = (Node)e.getSource() ;
         Integer colIndex = GridPane.getColumnIndex(source);
         Integer rowIndex = GridPane.getRowIndex(source);
-        System.out.print(colIndex.intValue() + " : " + rowIndex.intValue());
+        Point point= new Point(colIndex,rowIndex);
+        servicePoint.addPointToList(point);
+
+        System.out.printf("Mouse entered cell [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+
+        servicePoint.showList();
+
+
+
     }
+
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
+        addPaneToGridPane(playerBoard);
 
 
     }

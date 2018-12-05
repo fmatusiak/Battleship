@@ -1,22 +1,15 @@
 package battleship.gui;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Board extends Application {
 
-    private GridPane playerShipsBoard;
 
     //  private Image backgroundBoard = new Image("file:src/main/resources/img/images.jpeg");
 
@@ -26,11 +19,11 @@ public class Board extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        /*Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/battleshipBoard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gui/battleshipBoard.fxml"));
         primaryStage.setTitle("Battleship");
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.show();*/
+        primaryStage.show();
 
 
        /* BackgroundSize backgroundSize = new BackgroundSize(1200, 800, true, true, true, false);
@@ -75,7 +68,7 @@ public class Board extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();*/
 
-        Pane mainPane = new Pane();
+       /* Pane mainPane = new Pane();
         GridPane playerShipsAttackBoard = new GridPane();
         GridPane playerShipsBoard = new GridPane();
         GridPane computerShipsBoard = new GridPane();
@@ -152,6 +145,6 @@ public class Board extends Application {
 
         Scene scene = new Scene(mainPane, 1400,800);
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.show();*/
     }
 }
