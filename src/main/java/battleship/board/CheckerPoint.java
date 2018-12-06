@@ -18,7 +18,7 @@ public class CheckerPoint {
     }
 
     public Point getNoDuplicateListPoints(Point point){
-        if(checkPointsDuplicateInList(Point point)){
+        if(checkPointsDuplicate(Point point)){
             return point;
         }
 
