@@ -1,7 +1,9 @@
 package controller;
 
 import battleship.board.Point;
+import battleship.board.RandomPoint;
 import battleship.board.ServicePoint;
+import battleship.ship.Ship;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -13,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
@@ -74,6 +77,23 @@ public class BattleshipBoardController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addPaneToGridPane(playerBoard);
+
+        Ship ship = new Ship(1);
+
+
+        RandomPoint randomPoint = new RandomPoint(ship);
+
+        ArrayList<Point> points = new ArrayList<>();
+        points = randomPoint.randomListPoints();
+
+
+        for(Point point: points){
+            Pane pane = new Pane();
+            pane.setStyle("-fx-background-color: RED");
+            computerBoard.add(pane,point.getX(),point.getY());
+
+        }
+
 
 
     }

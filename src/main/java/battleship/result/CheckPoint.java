@@ -1,4 +1,4 @@
-package battleship.Result;
+package battleship.result;
 
 public class CheckPoint {
 

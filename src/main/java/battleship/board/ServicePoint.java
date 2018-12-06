@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ServicePoint {
 
-    ArrayList<Point> listPoints = new ArrayList<>();
+    private ArrayList<Point> listPoints = new ArrayList<>();
 
     public void addPointToList(Point point){
         listPoints.add(point);
