@@ -9,18 +9,17 @@ public class CheckerPoint {
     public boolean checkPointsDuplicate(Point point){
         points.add(point);
 
-         if(points.contains(point)){
-             points.remove(point);
-             return false;
-         }
+            if(points.contains(point)) {
+                points.remove(point);
+                return false;
+            }
+
 
          return  true;
     }
 
-    public Point getNoDuplicateListPoints(Point point){
-        if(checkPointsDuplicate(Point point)){
-            return point;
-        }
+    public ArrayList getNoDuplicatePoints() {
+            return points;
 
     }
 

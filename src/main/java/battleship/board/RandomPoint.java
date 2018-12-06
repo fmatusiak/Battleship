@@ -10,6 +10,7 @@ public class RandomPoint {
     private Random random = new Random();
 
 
+
     public RandomPoint(Ship ship){
         this.ship = ship;
     }
@@ -36,10 +37,11 @@ public class RandomPoint {
 
             while(i!=2){
 
-                while(checkerPoint.checkPointsDuplicateInList(generatePoint())){
-                    pointsList = checkerPoint.getNoDuplicateListPoints();
+                while(checkerPoint.checkPointsDuplicate(generatePoint())){
+                    pointsList.add(checkerPoint.getNoDuplicatePoint());
                 }
-                i++;
+
+              i++;
             }
 
 
