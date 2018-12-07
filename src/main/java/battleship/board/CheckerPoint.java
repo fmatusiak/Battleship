@@ -16,7 +16,6 @@ public class CheckerPoint {
         int length = checkerShip.checkerShip(ship);
 
         while (points.size() != length) {
-
             point = randomPoint.generatePoint();
 
             if (points.contains(point)) {
@@ -26,7 +25,6 @@ public class CheckerPoint {
             }
 
         }
-
         return points;
     }
 

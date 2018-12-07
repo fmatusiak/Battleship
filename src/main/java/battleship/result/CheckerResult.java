@@ -1,5 +1,4 @@
 package battleship.result;
 
-public class CheckPoint {
-
+public class CheckerResult {
 }
