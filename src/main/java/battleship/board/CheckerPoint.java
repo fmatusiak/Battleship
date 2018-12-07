@@ -1,26 +1,33 @@
 package battleship.board;
 
+import battleship.ship.CheckerShip;
+import battleship.ship.Ship;
+
 import java.util.ArrayList;
 
 public class CheckerPoint {
 
-    private ArrayList<Point> points = new ArrayList<>();
+    public ArrayList getListPointsNoDuplicate(Ship ship) {
+        ArrayList<Point> points = new ArrayList<>();
+        RandomPoint randomPoint = new RandomPoint(ship);
+        CheckerShip checkerShip = new CheckerShip();
+        Point point;
 
-    public boolean checkPointsDuplicate(Point point){
-        points.add(point);
+        int length = checkerShip.checkerShip(ship);
 
-            if(points.contains(point)) {
+        while (points.size() != length) {
+
+            point = randomPoint.generatePoint();
+
+            if (points.contains(point)) {
                 points.remove(point);
-                return false;
+            } else {
+                points.add(point);
             }
 
+        }
 
-         return  true;
-    }
-
-    public ArrayList getNoDuplicatePoints() {
-            return points;
-
+        return points;
     }
 
 }

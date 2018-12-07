@@ -6,7 +6,7 @@ public class ServicePoint {
 
     private ArrayList<Point> listPoints = new ArrayList<>();
 
-    public void addPointToList(Point point){
+    public void addPointToList(Point point) {
         listPoints.add(point);
     }
 
@@ -14,8 +14,8 @@ public class ServicePoint {
         return listPoints;
     }
 
-    public void showList(){
-        for(Point point : listPoints){
+    public void showList() {
+        for (Point point : listPoints) {
             System.out.println(point.getX() + " : " + point.getY());
         }
     }
