@@ -2,7 +2,9 @@ package controller;
 
 import battleship.board.Point;
 import battleship.board.RandomPoint;
-import battleship.board.ServicePoint;
+import battleship.ship.CheckerShip;
+import battleship.ship.CounterShips;
+import battleship.ship.ListShips;
 import battleship.ship.Ship;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,7 +21,13 @@ import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
 
-    ServicePoint servicePoint = new ServicePoint();
+    CheckerShip checkerShip = new CheckerShip();
+    CounterShips counterShipsPlayer = new CounterShips();
+
+    private ArrayList<ListShips> playerListShips = new ArrayList<>();
+    private ArrayList<ListShips> playerAttackListShips = new ArrayList<>();
+    private ArrayList<ListShips> computerListShips = new ArrayList<>();
+
 
     @FXML
     private Pane mainMenuPane;
@@ -56,18 +64,76 @@ public class BattleshipBoardController implements Initializable {
     }
 
     public void mouseClickOnGridPane(MouseEvent e) {
-
         Node source = (Node) e.getSource();
-        Integer colIndex = GridPane.getColumnIndex(source);
-        Integer rowIndex = GridPane.getRowIndex(source);
-        Point point = new Point(colIndex, rowIndex);
-        servicePoint.addPointToList(point);
+        Integer x = GridPane.getColumnIndex(source);
+        Integer y = GridPane.getRowIndex(source);
 
-        System.out.printf("Mouse entered cell [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
+        if (counterShipsPlayer.getOneShips() > 0) {
+            Pane pane = new Pane();
+            pane.setStyle("-fx-background-color: RED");
+            playerBoard.add(pane, x, y);
 
-        servicePoint.showList();
+            if (checkerShip.addNewShipPlayer(1, new Point(x, y))) {
+                ListShips listShips = new ListShips(new Ship(1), checkerShip.getListPoints());
+                playerListShips.add(listShips);
+                checkerShip.clearAllShipPlayer();
+
+                System.out.println("Stworzono nowy okret");
+
+                counterShipsPlayer.substractOneShips();
+
+            }
+
+        } else if (counterShipsPlayer.getOneShips() == 0 && counterShipsPlayer.getTwoShips() > 0) {
 
 
+            System.out.println("Counter two: " + counterShipsPlayer.getTwoShips());
+            System.out.println("Counter one: " + counterShipsPlayer.getOneShips());
+
+            Pane pane = new Pane();
+            pane.setStyle("-fx-background-color: GREEN");
+            playerBoard.add(pane, x, y);
+
+            if (checkerShip.addNewShipPlayer(2, new Point(x, y))) {
+                ListShips listShips = new ListShips(new Ship(2), checkerShip.getListPoints());
+                playerListShips.add(listShips);
+                checkerShip.clearAllShipPlayer();
+
+                System.out.println("Stworzono nowy okret");
+
+                counterShipsPlayer.substractTwoShips();
+            }
+
+        } else if (counterShipsPlayer.getOneShips() == 0 && counterShipsPlayer.getTwoShips() == 0 && counterShipsPlayer.getThreeShips() > 0) {
+
+            Pane pane = new Pane();
+            pane.setStyle("-fx-background-color: BLACK");
+            playerBoard.add(pane, x, y);
+
+            if (checkerShip.addNewShipPlayer(3, new Point(x, y))) {
+                ListShips listShips = new ListShips(new Ship(3), checkerShip.getListPoints());
+                playerListShips.add(listShips);
+                checkerShip.clearAllShipPlayer();
+
+                System.out.println("Stworzono nowy okret");
+
+                counterShipsPlayer.substractThreeShips();
+            }
+
+        }
+
+
+    }
+
+    public void getPlayerListShips() {
+        for (ListShips ships : playerListShips) {
+            System.out.println(ships.getShip());
+        }
+    }
+
+    public void addShipsPlayer(int lenght, Point point) {
+
+        checkerShip.addNewShipPlayer(lenght, point);
     }
 
 
@@ -75,16 +141,22 @@ public class BattleshipBoardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         addPaneToGridPane(playerBoard);
 
-        Ship ship = new Ship(1);
-        RandomPoint randomPoint = new RandomPoint(ship);
+        for (int i = 0; i < 4; i++) {
+            Ship ship = new Ship(1);
+            RandomPoint randomPoint = new RandomPoint(ship);
 
-        ArrayList<Point> points = new ArrayList<>();
-        points = randomPoint.randomListPoints();
+            ArrayList<Point> points = new ArrayList<>();
 
-        for (Point point : points) {
-            Pane pane = new Pane();
-            pane.setStyle("-fx-background-color: RED");
-            computerBoard.add(pane, point.getX(), point.getY());
+            points = randomPoint.getListPointsShipsNoDuplicate(ship);
+
+
+            ListShips listShipsComputer = new ListShips(ship, points);
+
+            computerListShips.add(listShipsComputer);
+        }
+
+        for (ListShips point : computerListShips) {
+            System.out.println(point);
 
         }
 

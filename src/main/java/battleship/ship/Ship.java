@@ -14,6 +14,7 @@ public class Ship {
         return String.valueOf(length);
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
