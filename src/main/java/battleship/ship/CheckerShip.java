@@ -1,15 +1,11 @@
 package battleship.ship;
 
 import battleship.board.Point;
-import battleship.board.ServicePoint;
 
 import java.util.ArrayList;
 
 public class CheckerShip {
     private int counter = 1;
-    private ServicePoint servicePoint = new ServicePoint();
-
-    CounterShips counterShipsPlayer = new CounterShips();
 
     public boolean addNewShipPlayer(int length, Point point) {
 
@@ -19,19 +15,9 @@ public class CheckerShip {
 
         System.out.println(counter);
 
-        servicePoint.addPointToList(point);
         counter++;
 
         return false;
-    }
-
-    public ArrayList getListPoints() {
-        return servicePoint.getListPoints();
-    }
-
-    public void clearAllShipPlayer() {
-        servicePoint.clearPointsList();
-        counter = 1;
     }
 
     public int checkerShip(Ship ship) {

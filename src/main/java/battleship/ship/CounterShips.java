@@ -1,6 +1,7 @@
 package battleship.ship;
 
 public class CounterShips {
+
     private int oneShips = 4;
     private int twoShips = 3;
     private int threeShips = 2;
