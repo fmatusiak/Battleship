@@ -42,15 +42,13 @@ public class CheckerPoint {
 
             if (!checkPointNotBusy(tmpPointDown, listPlayerPoints.getComputerListPoints())) {
                 if(tmpPointDown.getY() >= 0 && tmpPointDown.getY() <= 10){
-                    System.out.println(tmpPointDown.getX() + " : " + tmpPointDown.getY());
-
                     tmpPoints.add(tmpPointDown);
+                    listPlayerPoints.addPointsToComputerList(tmpPointDown);
 
                     if (tmpPoints.size() == howPoints) {
                         return true;
                     }
                 }
-
 
             }
         }
@@ -65,9 +63,8 @@ public class CheckerPoint {
 
             if (!checkPointNotBusy(tmpPointUp, listPlayerPoints.getComputerListPoints())) {
                 if(tmpPointUp.getY() >= 0 && tmpPointUp.getY() <= 10){
-                    System.out.println(tmpPointUp.getX() + " : " + tmpPointUp.getY());
-
                     tmpPoints.add(tmpPointUp);
+                    listPlayerPoints.addPointsToComputerList(tmpPointUp);
 
                     if (tmpPoints.size() == howPoints) {
                         return true;
@@ -87,10 +84,8 @@ public class CheckerPoint {
 
             if (!checkPointNotBusy(tmpPointLeft, listPlayerPoints.getComputerListPoints())) {
                 if(tmpPointLeft.getX() >= 0 && tmpPointLeft.getX() <= 10) {
-
-                    System.out.println(tmpPointLeft.getX() + " : " + tmpPointLeft.getY());
-
                     tmpPoints.add(tmpPointLeft);
+                    listPlayerPoints.addPointsToComputerList(tmpPointLeft);
 
                     if (tmpPoints.size() == howPoints) {
                         return true;
@@ -108,11 +103,9 @@ public class CheckerPoint {
             Point tmpPointRight = new Point(point.getX() + i, point.getY());
 
             if (!checkPointNotBusy(tmpPointRight, listPlayerPoints.getComputerListPoints())) {
-                if (tmpPointRight.getX() >= 10 && tmpPointRight.getX() <= 10 ){
-
-                    System.out.println(tmpPointRight.getX() + " : " + tmpPointRight.getY());
-
+                if (tmpPointRight.getX() >= 0 && tmpPointRight.getX() <= 10 ){
                     tmpPoints.add(tmpPointRight);
+                    listPlayerPoints.addPointsToComputerList(tmpPointRight);
 
                     if (tmpPoints.size() == howPoints) {
                         return true;
