@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public class CheckerPoint {
 
-    ListPlayerPoints listPlayerPoints = new ListPlayerPoints();
-
+    private ListPlayerPoints listPlayerPoints;
     ArrayList<Point> tmpPoints = new ArrayList();
+
+    public CheckerPoint(ListPlayerPoints listPlayerPoints) {
+        this.listPlayerPoints = listPlayerPoints;
+    }
 
     public boolean checkPointNotBusy(Point point, ArrayList listPlayerPoints) {
         return listPlayerPoints.contains(point);

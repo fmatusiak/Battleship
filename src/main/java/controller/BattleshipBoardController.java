@@ -1,11 +1,11 @@
 package controller;
 
 import battleship.board.CheckerPoint;
+import battleship.board.ListPlayerPoints;
 import battleship.board.Point;
 import battleship.board.RandomPoint;
 import battleship.ship.CheckerShip;
 import battleship.ship.ListShips;
-import battleship.ship.ServiceShip;
 import battleship.ship.Ship;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,10 +22,10 @@ import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
 
-
+    ListPlayerPoints listPlayerPoints = new ListPlayerPoints();
+    CheckerPoint checkerPoint = new CheckerPoint(listPlayerPoints);
     CheckerShip checkerShip = new CheckerShip();
     ListShips listShips = new ListShips();
-    ServiceShip serviceShip = new ServiceShip();
 
 
     @FXML
@@ -75,7 +75,7 @@ public class BattleshipBoardController implements Initializable {
     }
 
     public void randomShipComputer() {
-        CheckerPoint checkerPoint = new CheckerPoint();
+
         RandomPoint randomPoint = new RandomPoint();
 
         int i = 0;
@@ -138,10 +138,13 @@ public class BattleshipBoardController implements Initializable {
             checkerPoint.clearTmpPoints();
         }
 
-        ArrayList<Point> tmpAllpointsComputer = new ArrayList<>();
+
 
         for (Point point : checkerPoint.getComputerPoints()) {
-            tmpAllpointsComputer.add(point);
+
+
+
+
         }
 
     }
