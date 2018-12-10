@@ -4,6 +4,9 @@ import battleship.board.CheckerPoint;
 import battleship.board.Point;
 import battleship.board.RandomPoint;
 import battleship.ship.CheckerShip;
+import battleship.ship.ListShips;
+import battleship.ship.ServiceShip;
+import battleship.ship.Ship;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -14,11 +17,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
 
+
     CheckerShip checkerShip = new CheckerShip();
+    ListShips listShips = new ListShips();
+    ServiceShip serviceShip = new ServiceShip();
 
 
     @FXML
@@ -67,54 +74,75 @@ public class BattleshipBoardController implements Initializable {
         checkerShip.addNewShipPlayer(lenght, point);
     }
 
-
-    public void addShipsComputer() {
+    public void randomShipComputer() {
         CheckerPoint checkerPoint = new CheckerPoint();
         RandomPoint randomPoint = new RandomPoint();
 
+        int i = 0;
 
-        Pane ship2 = new Pane();
-        ship2.setStyle("-fx-background-color: GREEN;");
-
-        Pane ship3 = new Pane();
-        ship3.setStyle("-fx-background-color: BLACK;");
-
-        Pane ship4 = new Pane();
-        ship4.setStyle("-fx-background-color: SILVER;");
-
-
-        for (int i = 0; i < 10; i++) {
-            if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 4)) {
-                for (Point point : checkerPoint.getTmpPoints()) {
-                    System.out.println(point.getX() + " " + point.getY());
-                }
-            }
-
-            if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 3)) {
-                for (Point point : checkerPoint.getTmpPoints()) {
-                    System.out.println(point.getX() + " " + point.getY());
-                }
-            }
-
-            if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 2)) {
-                for (Point point : checkerPoint.getTmpPoints()) {
-
-                }
-            }
-
+        while (i < 4) {
             if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 1)) {
-                for (Point point : checkerPoint.getTmpPoints()) {
-                    Pane ship1 = new Pane();
-                    ship1.setStyle("-fx-background-color: RED;");
-                    computerBoard.add(ship1, point.getX(), point.getY());
-
-                }
+                i++;
             }
 
+            for (Point point : checkerPoint.getTmpPoints()) {
+
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: RED;");
+                computerBoard.add(pane, point.getX(), point.getY());
+            }
+            checkerPoint.clearTmpPoints();
         }
 
+        i = 0;
 
+        while (i < 3) {
+            if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 2)) {
+                i++;
+            }
+            for (Point point : checkerPoint.getTmpPoints()) {
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: GREEN;");
+                computerBoard.add(pane, point.getX(), point.getY());
+            }
+            checkerPoint.clearTmpPoints();
+        }
 
+        i = 0;
+        listShips.addShip(new Ship(3));
+        while (i < 2) {
+
+            if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 3)) {
+                i++;
+            }
+            for (Point point : checkerPoint.getTmpPoints()) {
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: BLACK;");
+                computerBoard.add(pane, point.getX(), point.getY());
+            }
+            checkerPoint.clearTmpPoints();
+        }
+
+        i = 0;
+
+        while (i < 1) {
+            if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), 4)) {
+                i++;
+            }
+            for (Point point : checkerPoint.getTmpPoints()) {
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: SILVER;");
+                computerBoard.add(pane, point.getX(), point.getY());
+
+            }
+            checkerPoint.clearTmpPoints();
+        }
+
+        ArrayList<Point> tmpAllpointsComputer = new ArrayList<>();
+
+        for (Point point : checkerPoint.getComputerPoints()) {
+            tmpAllpointsComputer.add(point);
+        }
 
     }
 
@@ -123,7 +151,8 @@ public class BattleshipBoardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         addPaneToGridPane(playerBoard);
-        addShipsComputer();
+        randomShipComputer();
+
 
     }
 
