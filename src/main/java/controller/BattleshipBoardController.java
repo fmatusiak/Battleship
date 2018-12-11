@@ -73,30 +73,36 @@ public class BattleshipBoardController implements Initializable {
         checkerShip.addNewShipPlayer(lenght, point);
     }
 
-    public void randomShipComputer(int howShips, int lengthShips) {
-
+    public void randomShipsComputer(int lengthShips, int howShips) {
         RandomPoint randomPoint = new RandomPoint();
-
         int i = 0;
 
         while (i < howShips) {
+
             if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), lengthShips)) {
-                listShips.addShipComputer(new Ship(lengthShips,checkerPoint.getTmpPoints()));
+
+                if (checkerPoint.getTmpPoints().size() == lengthShips) {
+                    listShips.addShipComputer(new Ship(lengthShips, checkerPoint.getTmpPoints()));
+                }
                 i++;
             }
             checkerPoint.clearTmpPoints();
         }
 
+
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         addPaneToGridPane(playerBoard);
-        randomShipComputer(4, 1);
-        randomShipComputer(3, 2);
-        listShips.showShips();
+        randomShipsComputer(2, 3);
+        randomShipsComputer(4, 1);
 
+        for (Point point : listPlayerPoints.getComputerListPoints()) {
+            System.out.println(point.getX() + " " + point.getY());
+        }
 
     }
 
