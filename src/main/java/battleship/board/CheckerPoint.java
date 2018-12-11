@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CheckerPoint {
 
-    private ListPlayerPoints listPlayerPoints;
+    ListPlayerPoints listPlayerPoints;
     ArrayList<Point> tmpPoints = new ArrayList();
 
     public CheckerPoint(ListPlayerPoints listPlayerPoints) {
@@ -21,9 +21,6 @@ public class CheckerPoint {
             listPlayerPoints.addPointsToComputerList(tmpPoints);
             return true;
         } else if (checkPointsDown(point, howPoints)) {
-            listPlayerPoints.addPointsToComputerList(tmpPoints);
-            return true;
-        } else if (checkPointsUp(point, howPoints)) {
             listPlayerPoints.addPointsToComputerList(tmpPoints);
             return true;
         } else if (checkPointsLeft(point, howPoints)) {
@@ -125,11 +122,7 @@ public class CheckerPoint {
         return tmpPoints;
     }
 
-    public ArrayList<Point> getComputerPoints(){
-        return listPlayerPoints.getComputerListPoints();
-    }
-
-    public void clearTmpPoints(){
+    public void clearTmpPoints() {
         tmpPoints.clear();
     }
 }

@@ -3,48 +3,41 @@ package battleship.ship;
 import battleship.board.Point;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ListShips {
-    private Ship ship;
-    private ArrayList<Point> pointsShip = new ArrayList<>();
 
-    public ListShips() {
+    private ArrayList<Ship> computerListShips = new ArrayList<>();
+    private ArrayList<Ship> playerListShips = new ArrayList<>();
 
+    public void addShipComputer(Ship computerShip){
+        computerListShips.add(computerShip);
     }
 
-    public ListShips(Ship ship, ArrayList<Point> pointsShip) {
-        this.ship = ship;
-        this.pointsShip = pointsShip;
+    public void addShipPlayer(Ship playerShip){
+        playerListShips.add(playerShip);
     }
 
-    public Ship getShip() {
-        return ship;
+    public boolean removeShipComputer(Ship ship){
+        return computerListShips.remove(ship);
     }
 
-    public ArrayList<Point> getPointsShip() {
-        return pointsShip;
+    public boolean removeShipPlayer(Ship ship){
+        return playerListShips.remove(ship);
     }
 
-    public void addPointToList(Point point) {
-        pointsShip.add(point);
+    public ArrayList<Ship> getComputerListShips() {
+        return computerListShips;
     }
 
-    public void addShip(Ship ship) {
-        this.ship = ship;
+    public ArrayList<Ship> getPlayerListShips() {
+        return playerListShips;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ListShips listShips = (ListShips) o;
-        return Objects.equals(ship, listShips.ship) &&
-                Objects.equals(pointsShip, listShips.pointsShip);
+    public void showShips() {
+        for(Ship ship : computerListShips){
+            System.out.println(ship);
+        }
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(ship, pointsShip);
-    }
+
 }
