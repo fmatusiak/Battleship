@@ -20,12 +20,8 @@ public class Shoot {
         checkerShoot = new CheckerShoot(listShips);
     }
 
-    public void shoot(Point point) {
-        if (checkerShoot.checkShoot(point)) {
+    public void shootArea(Point point) {
+       checkerShoot.checkShoot(point);
 
-            System.out.println("TRafiony");
-        } else {
-            System.out.println("Pudlo");
-        }
     }
 }

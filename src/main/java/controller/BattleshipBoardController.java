@@ -78,7 +78,7 @@ public class BattleshipBoardController implements Initializable {
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
-        shoot.shoot(new Point(x,y));
+        shoot.shootArea(new Point(x,y));
 
     }
 
@@ -128,6 +128,8 @@ public class BattleshipBoardController implements Initializable {
         randomShipsComputer(2, 3);
         randomShipsComputer(3, 2);
         randomShipsComputer(4, 1);
+
+        listShips.getComputerListShips();
 
 
         for(Ship ship : listShips.getComputerListShips()){

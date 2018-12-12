@@ -17,8 +17,8 @@ public class ListShips {
         playerListShips.add(playerShip);
     }
 
-    public boolean removeShipComputer(Ship ship){
-        return computerListShips.remove(ship);
+    public void removeShipComputer(Ship computerShip){
+        computerListShips.remove(computerShip);
     }
 
     public boolean removeShipPlayer(Ship ship){

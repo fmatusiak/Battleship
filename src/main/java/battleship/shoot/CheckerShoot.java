@@ -4,6 +4,8 @@ import battleship.board.Point;
 import battleship.ship.ListShips;
 import battleship.ship.Ship;
 
+import java.util.ArrayList;
+
 public class CheckerShoot {
 
     ListShips listShips;
@@ -12,21 +14,27 @@ public class CheckerShoot {
         this.listShips = listShips;
     }
 
-    public boolean checkShoot(Point point) {
-
+    public int checkShoot(Point point) {
         for (Ship ship : listShips.getComputerListShips()) {
             if (ship.getShipPoints().contains(point)) {
-                ship.getShipPoints().remove(point);
-                System.out.println("Trafiony");
-                if (checkHitOrSunk(ship)) {
-                    listShips.getComputerListShips().remove(ship);
-                    System.out.println("Zatopiony");
+                if (ship.removeShipPoint(point)) {
+                    if (checkHitOrSunk(ship)) {
+                       // listShips.removeShipComputer(ship);
+                            System.out.println("Zatopiony");
+                    } else {
+                        System.out.println("Trafiony");
+                    }
+
                 }
-                return true;
+
             }
+
         }
-        return false;
+        return 0;
     }
+
+
+
 
     public boolean checkHitOrSunk(Ship ship) {
         return ship.getShipPoints().size() == 0;
