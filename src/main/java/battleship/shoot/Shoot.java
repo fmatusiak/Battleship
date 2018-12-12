@@ -15,8 +15,6 @@ public class Shoot {
         this.listShips = listShips;
     }
 
-
-
     public void shoot(Point point, ArrayList<Ship> listShipsPlayer){
 
     }

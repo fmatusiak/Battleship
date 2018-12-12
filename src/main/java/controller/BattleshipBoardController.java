@@ -61,6 +61,8 @@ public class BattleshipBoardController implements Initializable {
         }
     }
 
+
+
     public void mouseClickOnGridPane(MouseEvent e) {
         Node source = (Node) e.getSource();
         Integer x = GridPane.getColumnIndex(source);
@@ -99,6 +101,9 @@ public class BattleshipBoardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         addPaneToGridPane(playerBoard);
+        addPaneToGridPane(playerAttackBoard);
+
+
         randomShipsComputer(1, 4);
         randomShipsComputer(2, 3);
         randomShipsComputer(3, 2);
