@@ -7,6 +7,7 @@ import battleship.board.RandomPoint;
 import battleship.ship.CheckerShip;
 import battleship.ship.ListShips;
 import battleship.ship.Ship;
+import battleship.shoot.Shoot;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -25,6 +26,7 @@ public class BattleshipBoardController implements Initializable {
     CheckerPoint checkerPoint = new CheckerPoint(listPlayerPoints);
     CheckerShip checkerShip = new CheckerShip();
     ListShips listShips = new ListShips();
+    Shoot shoot = new Shoot(listShips);
 
 
     @FXML
@@ -61,6 +63,24 @@ public class BattleshipBoardController implements Initializable {
         }
     }
 
+    public void addPaneToGridPanePlayerAttack(GridPane gridPane) {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                Pane pane = new Pane();
+                pane.setOnMouseClicked(e -> shootComputer(e));
+                gridPane.add(pane, i, j);
+            }
+        }
+    }
+
+    public void shootComputer(MouseEvent e){
+        Node source = (Node) e.getSource();
+        Integer x = GridPane.getColumnIndex(source);
+        Integer y = GridPane.getRowIndex(source);
+
+        shoot.shoot(new Point(x,y));
+
+    }
 
 
     public void mouseClickOnGridPane(MouseEvent e) {
@@ -101,7 +121,7 @@ public class BattleshipBoardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         addPaneToGridPane(playerBoard);
-        addPaneToGridPane(playerAttackBoard);
+        addPaneToGridPanePlayerAttack(playerAttackBoard);
 
 
         randomShipsComputer(1, 4);
