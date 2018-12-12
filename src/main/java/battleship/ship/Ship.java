@@ -10,9 +10,17 @@ public class Ship {
     private int length;
     private ArrayList<Point> shipPoints;
 
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "length=" + length +
+                ", shipPoints=" + shipPoints +
+                '}';
+    }
+
     public Ship(int length, ArrayList<Point> shipPoints) {
         this.length = length;
-        this.shipPoints = shipPoints;
+        this.shipPoints = new ArrayList(shipPoints);
     }
     
     public int getLength() {

@@ -33,11 +33,4 @@ public class ListShips {
         return playerListShips;
     }
 
-    public void showShips() {
-        for(Ship ship : computerListShips){
-            System.out.println(ship);
-        }
-    }
-
-
 }

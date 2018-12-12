@@ -83,10 +83,12 @@ public class BattleshipBoardController implements Initializable {
 
                 if (checkerPoint.getTmpPoints().size() == lengthShips) {
                     listShips.addShipComputer(new Ship(lengthShips, checkerPoint.getTmpPoints()));
+                    checkerPoint.clearTmpPoints();
+                    i++;
                 }
-                i++;
+
             }
-            checkerPoint.clearTmpPoints();
+
         }
 
 
@@ -97,11 +99,18 @@ public class BattleshipBoardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         addPaneToGridPane(playerBoard);
+        randomShipsComputer(1, 4);
         randomShipsComputer(2, 3);
+        randomShipsComputer(3, 2);
         randomShipsComputer(4, 1);
 
-        for (Point point : listPlayerPoints.getComputerListPoints()) {
-            System.out.println(point.getX() + " " + point.getY());
+
+        for(Ship ship : listShips.getComputerListShips()){
+            for(Point point : ship.getShipPoints()){
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: RED;");
+                computerBoard.add(pane,point.getX(),point.getY());
+            }
         }
 
     }
