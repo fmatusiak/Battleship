@@ -6,26 +6,27 @@ public class Player {
     private int counterSunkenShips = 0;
     private int counterHitShips = 0;
 
-    public Player (String playerId){
+    public Player(String playerId) {
         this.playerId = playerId;
     }
 
-    public String getPlayerId(){
+    public String getPlayerId() {
         return playerId;
     }
 
-    public int getSunkenShips(){
+    public int getSunkenShips() {
         return counterSunkenShips;
     }
-    public int getHitShips(){
+
+    public int getHitShips() {
         return counterHitShips;
     }
 
-    public void addCounterSunkenShips(){
-       counterSunkenShips++;
+    public void addCounterSunkenShips() {
+        counterSunkenShips++;
     }
 
-    public void addCounterHitShips(){
+    public void addCounterHitShips() {
         counterHitShips++;
     }
 

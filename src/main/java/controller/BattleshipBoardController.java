@@ -88,12 +88,12 @@ public class BattleshipBoardController implements Initializable {
     }
 
 
-    public void shootUser(MouseEvent e){
+    public void shootUser(MouseEvent e) {
         Node source = (Node) e.getSource();
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
-        shoot.shootArea(new Point(x,y),user);
+        shoot.shootArea(new Point(x, y), user);
 
     }
 
@@ -112,9 +112,9 @@ public class BattleshipBoardController implements Initializable {
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
-        while(checkerShip.checkNewShipPlayer(lenght,new Point(x,y))){
+        while (checkerShip.checkNewShipPlayer(lenght, new Point(x, y))) {
             listPlayerPoints.getPlayerListPoints();
-            if(listShips.addShipPlayer(new Ship(lenght,listPlayerPoints.getPlayerListPoints()))){
+            if (listShips.addShipPlayer(new Ship(lenght, listPlayerPoints.getPlayerListPoints()))) {
                 System.out.println("Dodano " + lenght + " dlugosciowy statek");
 
                 showPlayerPoints();
@@ -146,9 +146,9 @@ public class BattleshipBoardController implements Initializable {
 
     }
 
-    public void showPlayerPoints(){
-        for(Ship ship : listShips.getPlayerListShips()){
-            for(Point point : ship.getShipPoints()){
+    public void showPlayerPoints() {
+        for (Ship ship : listShips.getPlayerListShips()) {
+            for (Point point : ship.getShipPoints()) {
                 System.out.println(point);
             }
         }
@@ -170,21 +170,16 @@ public class BattleshipBoardController implements Initializable {
         listShips.getComputerListShips();
 
 
-        for(Ship ship : listShips.getComputerListShips()){
-            for(Point point : ship.getShipPoints()){
+        for (Ship ship : listShips.getComputerListShips()) {
+            for (Point point : ship.getShipPoints()) {
                 Pane pane = new Pane();
                 pane.setStyle("-fx-background-color: RED;");
-                computerBoard.add(pane,point.getX(),point.getY());
+                computerBoard.add(pane, point.getX(), point.getY());
             }
         }
 
 
-
-
-
     }
-
-
 
 
 }

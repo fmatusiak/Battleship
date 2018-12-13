@@ -1,7 +1,5 @@
 package battleship.ship;
 
-import battleship.board.Point;
-
 import java.util.ArrayList;
 
 public class ListShips {
@@ -9,19 +7,19 @@ public class ListShips {
     private ArrayList<Ship> computerListShips = new ArrayList<>();
     private ArrayList<Ship> playerListShips = new ArrayList<>();
 
-    public void addShipComputer(Ship computerShip){
+    public void addShipComputer(Ship computerShip) {
         computerListShips.add(computerShip);
     }
 
-    public boolean addShipPlayer(Ship playerShip){
+    public boolean addShipPlayer(Ship playerShip) {
         return playerListShips.add(playerShip);
     }
 
-    public void removeShipComputer(Ship computerShip){
+    public void removeShipComputer(Ship computerShip) {
         computerListShips.remove(computerShip);
     }
 
-    public boolean removeShipPlayer(Ship ship){
+    public boolean removeShipPlayer(Ship ship) {
         return playerListShips.remove(ship);
     }
 

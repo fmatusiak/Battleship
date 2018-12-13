@@ -6,7 +6,6 @@ import battleship.ship.ListShips;
 
 public class Shoot {
 
-    Point point;
     ListShips listShips;
     CheckerShoot checkerShoot;
 
