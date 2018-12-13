@@ -13,8 +13,8 @@ public class ListShips {
         computerListShips.add(computerShip);
     }
 
-    public void addShipPlayer(Ship playerShip){
-        playerListShips.add(playerShip);
+    public boolean addShipPlayer(Ship playerShip){
+        return playerListShips.add(playerShip);
     }
 
     public void removeShipComputer(Ship computerShip){

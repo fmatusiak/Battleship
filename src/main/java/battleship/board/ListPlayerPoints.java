@@ -16,6 +16,10 @@ public class ListPlayerPoints {
         return playerListPoints;
     }
 
+    public void addPointToPlayerList(Point playerPoint){
+        playerListPoints.add(playerPoint);
+    }
+
     public void addPointsToComputerList(Point computerPoint){
         computerListPoint.add(computerPoint);
     }
