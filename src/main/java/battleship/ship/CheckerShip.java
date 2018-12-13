@@ -1,7 +1,7 @@
 package battleship.ship;
 
-import battleship.board.CheckerPoint;
-import battleship.board.Point;
+import battleship.point.CheckerPoint;
+import battleship.point.Point;
 
 public class CheckerShip {
 

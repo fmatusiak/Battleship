@@ -1,9 +1,9 @@
 package controller;
 
-import battleship.board.CheckerPoint;
-import battleship.board.ListPlayerPoints;
-import battleship.board.Point;
-import battleship.board.RandomPoint;
+import battleship.point.CheckerPoint;
+import battleship.point.ListPlayerPoints;
+import battleship.point.Point;
+import battleship.point.RandomPoint;
 import battleship.players.Player;
 import battleship.ship.CheckerShip;
 import battleship.ship.ListShips;

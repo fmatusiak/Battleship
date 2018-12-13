@@ -1,6 +1,6 @@
 package battleship.shoot;
 
-import battleship.board.Point;
+import battleship.point.Point;
 import battleship.players.Player;
 import battleship.ship.ListShips;
 

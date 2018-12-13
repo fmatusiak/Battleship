@@ -1,4 +1,4 @@
-package battleship.board;
+package battleship.point;
 
 import java.util.ArrayList;
 

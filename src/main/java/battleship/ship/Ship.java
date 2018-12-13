@@ -1,6 +1,6 @@
 package battleship.ship;
 
-import battleship.board.Point;
+import battleship.point.Point;
 
 import java.util.ArrayList;
 import java.util.Objects;
