@@ -26,17 +26,13 @@ public class CheckerPoint {
     public boolean checkComputerPoints(Point point, int howPoints) {
 
         if (checkPointsUp(point, howPoints)) {
-            listPlayerPoints.addPointsToComputerList(tmpPoints);
-            return true;
+            return listPlayerPoints.addPointsToComputerList(tmpPoints);
         } else if (checkPointsDown(point, howPoints)) {
-            listPlayerPoints.addPointsToComputerList(tmpPoints);
-            return true;
+            return listPlayerPoints.addPointsToComputerList(tmpPoints);
         } else if (checkPointsLeft(point, howPoints)) {
-            listPlayerPoints.addPointsToComputerList(tmpPoints);
-            return true;
+            return listPlayerPoints.addPointsToComputerList(tmpPoints);
         } else if (checkPointsRight(point, howPoints)) {
-            listPlayerPoints.addPointsToComputerList(tmpPoints);
-            return true;
+            return listPlayerPoints.addPointsToComputerList(tmpPoints);
         }
         tmpPoints.clear();
         return false;
@@ -49,7 +45,7 @@ public class CheckerPoint {
             Point tmpPointDown = new Point(point.getX(), point.getY() - i);
 
             if (!checkPointNotBusy(tmpPointDown, listPlayerPoints.getComputerListPoints())) {
-                if (tmpPointDown.getY() >= 0 && tmpPointDown.getY() <= 10) {
+                if (tmpPointDown.getY() >= 1 && tmpPointDown.getY() <= 9) {
                     tmpPoints.add(tmpPointDown);
                     listPlayerPoints.addPointsToComputerList(tmpPointDown);
 
@@ -70,7 +66,7 @@ public class CheckerPoint {
             Point tmpPointUp = new Point(point.getX(), point.getY() + i);
 
             if (!checkPointNotBusy(tmpPointUp, listPlayerPoints.getComputerListPoints())) {
-                if (tmpPointUp.getY() >= 0 && tmpPointUp.getY() <= 10) {
+                if (tmpPointUp.getY() >= 1 && tmpPointUp.getY() <= 9) {
                     tmpPoints.add(tmpPointUp);
                     listPlayerPoints.addPointsToComputerList(tmpPointUp);
 
@@ -91,7 +87,7 @@ public class CheckerPoint {
             Point tmpPointLeft = new Point(point.getX() - i, point.getY());
 
             if (!checkPointNotBusy(tmpPointLeft, listPlayerPoints.getComputerListPoints())) {
-                if (tmpPointLeft.getX() >= 0 && tmpPointLeft.getX() <= 10) {
+                if (tmpPointLeft.getX() >= 1 && tmpPointLeft.getX() <= 9) {
                     tmpPoints.add(tmpPointLeft);
                     listPlayerPoints.addPointsToComputerList(tmpPointLeft);
 
@@ -111,7 +107,7 @@ public class CheckerPoint {
             Point tmpPointRight = new Point(point.getX() + i, point.getY());
 
             if (!checkPointNotBusy(tmpPointRight, listPlayerPoints.getComputerListPoints())) {
-                if (tmpPointRight.getX() >= 0 && tmpPointRight.getX() <= 10) {
+                if (tmpPointRight.getX() >= 1 && tmpPointRight.getX() <= 9) {
                     tmpPoints.add(tmpPointRight);
                     listPlayerPoints.addPointsToComputerList(tmpPointRight);
 

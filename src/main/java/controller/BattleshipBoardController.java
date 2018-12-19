@@ -1,10 +1,10 @@
 package controller;
 
+import battleship.players.Player;
 import battleship.point.CheckerPoint;
 import battleship.point.ListPlayerPoints;
 import battleship.point.Point;
 import battleship.point.RandomPoint;
-import battleship.players.Player;
 import battleship.ship.CheckerShip;
 import battleship.ship.ListShips;
 import battleship.ship.Ship;
@@ -32,7 +32,6 @@ public class BattleshipBoardController implements Initializable {
     Player user = new Player("user");
     Player computer = new Player("computer");
 
-
     @FXML
     private Pane mainMenuPane;
 
@@ -57,16 +56,6 @@ public class BattleshipBoardController implements Initializable {
     @FXML
     private Label shipsTitle;
 
-    public void addPaneToGridPane(GridPane gridPane) {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                Pane pane = new Pane();
-                pane.setOnMouseClicked(e -> mouseClickOnGridPane(e));
-                gridPane.add(pane, i, j);
-            }
-        }
-    }
-
     public void addPaneToGridPanePlayerAttack(GridPane gridPane) {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -81,7 +70,7 @@ public class BattleshipBoardController implements Initializable {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 Pane pane = new Pane();
-                pane.setOnMouseClicked(e -> addShipsPlayer(e));
+                pane.setOnMouseClicked(e -> addShipsPlayerBoardClick(e));
                 gridPane.add(pane, i, j);
             }
         }
@@ -93,46 +82,42 @@ public class BattleshipBoardController implements Initializable {
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
-        shoot.shootArea(new Point(x, y), user);
+        Pane pane = new Pane();
+        pane.setStyle("-fx-background-color: SILVER");
 
+        Point point = new Point(x, y);
+
+        playerAttackBoard.add(pane, point.getX(), point.getY());
+
+        shoot.shootArea(point, user);
     }
 
+    public void addShipsPlayerBoardClick(MouseEvent e) {
 
-    public void mouseClickOnGridPane(MouseEvent e) {
         Node source = (Node) e.getSource();
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
+        addShipsPlayer(1, x, y);
 
     }
 
-    public void addShipsPlayer(MouseEvent e) {
-        int lenght = 4;
-        Node source = (Node) e.getSource();
-        Integer x = GridPane.getColumnIndex(source);
-        Integer y = GridPane.getRowIndex(source);
-
-        while (checkerShip.checkNewShipPlayer(lenght, new Point(x, y))) {
-            listPlayerPoints.getPlayerListPoints();
-            if (listShips.addShipPlayer(new Ship(lenght, listPlayerPoints.getPlayerListPoints()))) {
-                System.out.println("Dodano " + lenght + " dlugosciowy statek");
-
-                showPlayerPoints();
-
+    public void addShipsPlayer(int length, Integer x, Integer y) {
+        if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
+            if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerListPoints()))) {
+                System.out.println("Dodano " + length + " dlugosciowy statek");
             }
+            listPlayerPoints.clearPointsToTmpListPoints();
         }
 
-
     }
+
 
     public void randomShipsComputer(int lengthShips, int howShips) {
         RandomPoint randomPoint = new RandomPoint();
         int i = 0;
-
         while (i < howShips) {
-
             if (checkerPoint.checkComputerPoints(randomPoint.generateRandomPoint(), lengthShips)) {
-
                 if (checkerPoint.getTmpPoints().size() == lengthShips) {
                     listShips.addShipComputer(new Ship(lengthShips, checkerPoint.getTmpPoints()));
                     checkerPoint.clearTmpPoints();
@@ -142,7 +127,6 @@ public class BattleshipBoardController implements Initializable {
             }
 
         }
-
 
     }
 
@@ -154,13 +138,11 @@ public class BattleshipBoardController implements Initializable {
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         addPaneToGridPanePlayerAttack(playerAttackBoard);
         addPaneToGridPanePlayer(playerBoard);
-
 
         randomShipsComputer(1, 4);
         randomShipsComputer(2, 3);
@@ -168,7 +150,6 @@ public class BattleshipBoardController implements Initializable {
         randomShipsComputer(4, 1);
 
         listShips.getComputerListShips();
-
 
         for (Ship ship : listShips.getComputerListShips()) {
             for (Point point : ship.getShipPoints()) {
@@ -178,8 +159,6 @@ public class BattleshipBoardController implements Initializable {
             }
         }
 
-
     }
-
 
 }

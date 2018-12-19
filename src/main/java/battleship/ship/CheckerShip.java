@@ -6,7 +6,9 @@ import battleship.point.Point;
 public class CheckerShip {
 
     CheckerPoint checkerPoint;
+
     private int counter = 1;
+
     public CheckerShip(CheckerPoint checkerPoint) {
         this.checkerPoint = checkerPoint;
     }
