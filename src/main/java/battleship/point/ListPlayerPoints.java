@@ -6,11 +6,19 @@ public class ListPlayerPoints {
     private ArrayList<Point> computerListPoint = new ArrayList<>();
     private ArrayList<Point> computerListPoints = new ArrayList<>();
 
+    public ArrayList<Point> getPlayerTmpListPoints() {
+        return playerTmpListPoints;
+    }
+
     private ArrayList<Point> playerTmpListPoints = new ArrayList<>();
     private ArrayList<Point> playerListPoints = new ArrayList<>();
 
     public ArrayList<Point> getComputerListPoints() {
         return computerListPoints;
+    }
+
+    public boolean addPointsTmpPlayerList(Point tmpPoint){
+        return playerTmpListPoints.add(tmpPoint);
     }
 
     public ArrayList<Point> getPlayerListPoints() {

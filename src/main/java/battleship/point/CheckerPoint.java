@@ -16,15 +16,14 @@ public class CheckerPoint {
     }
 
     public boolean checkPlayerPoint(Point point) {
-        if (listPlayerPoints.getPlayerListPoints().contains(point)) {
+        if (listPlayerPoints.getPlayerTmpListPoints().contains(point)) {
             return false;
         }
-        listPlayerPoints.addPointToPlayerList(point);
+        listPlayerPoints.addPointsTmpPlayerList(point);
         return true;
     }
 
     public boolean checkComputerPoints(Point point, int howPoints) {
-
         if (checkPointsUp(point, howPoints)) {
             return listPlayerPoints.addPointsToComputerList(tmpPoints);
         } else if (checkPointsDown(point, howPoints)) {

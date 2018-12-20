@@ -98,7 +98,7 @@ public class BattleshipBoardController implements Initializable {
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
-        addShipsPlayer(1, x, y);
+        addShipsPlayer(4, x, y);
 
     }
 
