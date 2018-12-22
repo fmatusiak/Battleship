@@ -62,7 +62,7 @@ public class BattleshipBoardController implements Initializable {
     @FXML
     private Label shipsTitle;
 
-    public void addLengthShipsToQueue(){
+    public void addLengthShipsToQueue() {
         l.add(4);
         l.add(3);
         l.add(3);
@@ -122,7 +122,7 @@ public class BattleshipBoardController implements Initializable {
 
     public void addShipsPlayer(Integer x, Integer y) {
 
-        if(l.size() > 0){
+        if (l.size() > 0) {
             int length = l.peek();
             if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
                 if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerListPoints()))) {
