@@ -14,7 +14,6 @@ public class CheckerShip {
     }
 
     public boolean checkNewShipPlayer(int length, Point point) {
-
         if (checkerPoint.checkPlayerPoint(point)) {
             if (counter == length) {
                 return true;
@@ -23,6 +22,11 @@ public class CheckerShip {
         }
         return false;
     }
+
+    public void counterShipPoints(){
+        counter = 1;
+    }
+
 
 
 }

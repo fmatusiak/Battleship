@@ -19,6 +19,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
@@ -31,6 +33,10 @@ public class BattleshipBoardController implements Initializable {
 
     Player user = new Player("user");
     Player computer = new Player("computer");
+
+
+    Queue<Integer> l = new LinkedList<>();
+
 
     @FXML
     private Pane mainMenuPane;
@@ -55,6 +61,19 @@ public class BattleshipBoardController implements Initializable {
 
     @FXML
     private Label shipsTitle;
+
+    public void addLengthShipsToQueue(){
+        l.add(4);
+        l.add(3);
+        l.add(3);
+        l.add(2);
+        l.add(2);
+        l.add(2);
+        l.add(1);
+        l.add(1);
+        l.add(1);
+        l.add(1);
+    }
 
     public void addPaneToGridPanePlayerAttack(GridPane gridPane) {
         for (int i = 0; i < 10; i++) {
@@ -98,20 +117,26 @@ public class BattleshipBoardController implements Initializable {
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
 
-        addShipsPlayer(4, x, y);
-
+        addShipsPlayer(x, y);
     }
 
-    public void addShipsPlayer(int length, Integer x, Integer y) {
-        if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
-            if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerListPoints()))) {
-                System.out.println("Dodano " + length + " dlugosciowy statek");
+    public void addShipsPlayer(Integer x, Integer y) {
+
+        if(l.size() > 0){
+            int length = l.peek();
+            if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
+                if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerListPoints()))) {
+                    System.out.println("Dodano " + length + " dlugosciowy statek");
+                }
+                listPlayerPoints.clearPointsToTmpListPoints();
+                checkerShip.counterShipPoints();
+                l.remove();
             }
-            listPlayerPoints.clearPointsToTmpListPoints();
+        } else {
+            System.out.println("Dodano wszystkie statki");
         }
 
     }
-
 
     public void randomShipsComputer(int lengthShips, int howShips) {
         RandomPoint randomPoint = new RandomPoint();
@@ -149,7 +174,7 @@ public class BattleshipBoardController implements Initializable {
         randomShipsComputer(3, 2);
         randomShipsComputer(4, 1);
 
-        listShips.getComputerListShips();
+        addLengthShipsToQueue();
 
         for (Ship ship : listShips.getComputerListShips()) {
             for (Point point : ship.getShipPoints()) {
