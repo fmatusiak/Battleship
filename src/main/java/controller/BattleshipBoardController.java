@@ -125,7 +125,7 @@ public class BattleshipBoardController implements Initializable {
         if (l.size() > 0) {
             int length = l.peek();
             if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
-                if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerListPoints()))) {
+                if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerTmpListPoints()))) {
                     System.out.println("Dodano " + length + " dlugosciowy statek");
                 }
                 listPlayerPoints.clearPointsToTmpListPoints();
@@ -134,6 +134,10 @@ public class BattleshipBoardController implements Initializable {
             }
         } else {
             System.out.println("Dodano wszystkie statki");
+
+            for(Ship ship : listShips.getPlayerListShips()){
+                System.out.println(ship);
+            }
         }
 
     }

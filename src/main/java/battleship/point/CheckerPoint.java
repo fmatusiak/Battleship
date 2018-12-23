@@ -16,10 +16,10 @@ public class CheckerPoint {
     }
 
     public boolean checkPlayerPoint(Point point) {
-        if (listPlayerPoints.getPlayerTmpListPoints().contains(point)) {
+        if (listPlayerPoints.getPlayerListPoints().contains(point)) {
             return false;
         }
-        listPlayerPoints.addPointsTmpPlayerList(point);
+        listPlayerPoints.addPointToPlayerList(point);
         return true;
     }
 

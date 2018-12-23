@@ -5,28 +5,23 @@ import java.util.ArrayList;
 public class ListPlayerPoints {
     private ArrayList<Point> computerListPoint = new ArrayList<>();
     private ArrayList<Point> computerListPoints = new ArrayList<>();
+    private ArrayList<Point> playerTmpListPoints = new ArrayList<>();
+    private ArrayList<Point> playerListPoints = new ArrayList<>();
 
     public ArrayList<Point> getPlayerTmpListPoints() {
         return playerTmpListPoints;
     }
 
-    private ArrayList<Point> playerTmpListPoints = new ArrayList<>();
-    private ArrayList<Point> playerListPoints = new ArrayList<>();
-
     public ArrayList<Point> getComputerListPoints() {
         return computerListPoints;
     }
 
-    public boolean addPointsTmpPlayerList(Point tmpPoint){
-        return playerTmpListPoints.add(tmpPoint);
-    }
-
     public ArrayList<Point> getPlayerListPoints() {
-        playerTmpListPoints.addAll(playerListPoints);
         return playerListPoints;
     }
 
     public boolean addPointToPlayerList(Point playerPoint) {
+        playerTmpListPoints.add(playerPoint);
         return playerListPoints.add(playerPoint);
     }
 
@@ -39,7 +34,7 @@ public class ListPlayerPoints {
     }
 
     public void clearPointsToTmpListPoints() {
-        playerListPoints.clear();
+        playerTmpListPoints.clear();
     }
 
 
