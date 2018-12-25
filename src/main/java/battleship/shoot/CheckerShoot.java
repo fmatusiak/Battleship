@@ -20,6 +20,7 @@ public class CheckerShoot {
                 if (ship.getShipPoints().contains(point)) {
                     if (ship.removeShipPoint(point)) {
                         if (checkHitOrSunk(ship)) {
+                            listShips.removeShipPlayer(ship);
                             return 2;
                         } else {
                             return 1;
@@ -36,6 +37,7 @@ public class CheckerShoot {
                 if (ship.getShipPoints().contains(point)) {
                     if (ship.removeShipPoint(point)) {
                         if (checkHitOrSunk(ship)) {
+                            listShips.removeShipComputer(ship);
                             return 2;
                         } else {
                             return 1;

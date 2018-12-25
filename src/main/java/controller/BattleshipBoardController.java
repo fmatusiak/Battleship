@@ -117,13 +117,13 @@ public class BattleshipBoardController implements Initializable {
     }
 
 
-    public void addShipsPlayerBoardClick(MouseEvent e) {
+    public boolean addShipsPlayerBoardClick(MouseEvent e) {
 
         Node source = (Node) e.getSource();
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
-
-        addShipsPlayer(x, y);
+        shootComputer();
+        return addShipsPlayer(x, y);
     }
 
     public boolean addShipsPlayer(Integer x, Integer y) {
@@ -193,7 +193,6 @@ public class BattleshipBoardController implements Initializable {
             }
         }
 
-        shootComputer();
     }
 
 }
