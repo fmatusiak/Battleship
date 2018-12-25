@@ -7,7 +7,7 @@ public class CheckerResult {
         this.result = result;
     }
 
-    public int checkWhoIsEmptyShips() {
+    public int checkWhoIsWin() {
         if (result.getShipsComputer() == 0) {
             return 1;
         } else if (result.getShipsPlayer() == 0) {
