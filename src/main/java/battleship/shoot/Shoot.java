@@ -18,13 +18,13 @@ public class Shoot {
         int hitOrSunkShip = checkerShoot.checkAttackPoint(point, enemyPlayer);
 
         if (hitOrSunkShip == 1) {
-            System.out.println("Trafiony");
+            System.out.println("Hit");
             return 1;
         } else if (hitOrSunkShip == 2) {
-            System.out.println("Zatopiony");
+            System.out.println("Sunk");
             return 2;
         } else if (hitOrSunkShip == 0) {
-            System.out.println("Pudło");
+            System.out.println("Miss");
             return 0;
         }
 
