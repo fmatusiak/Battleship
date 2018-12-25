@@ -5,6 +5,7 @@ import battleship.point.CheckerPoint;
 import battleship.point.ListPlayerPoints;
 import battleship.point.Point;
 import battleship.point.RandomPoint;
+import battleship.result.Result;
 import battleship.ship.CheckerShip;
 import battleship.ship.ListShips;
 import battleship.ship.Ship;
@@ -30,6 +31,7 @@ public class BattleshipBoardController implements Initializable {
     CheckerShip checkerShip = new CheckerShip(checkerPoint);
     ListShips listShips = new ListShips();
     Shoot shoot = new Shoot(listShips);
+    Result result = new Result(listShips);
 
     Player user = new Player("user");
     Player computer = new Player("computer");

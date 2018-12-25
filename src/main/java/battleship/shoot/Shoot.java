@@ -27,7 +27,6 @@ public class Shoot {
             System.out.println("Miss");
             return 0;
         }
-
         return -1;
     }
 }
