@@ -35,7 +35,7 @@ public class BattleshipBoardController implements Initializable {
     Player computer = new Player("computer");
 
 
-    Queue<Integer> l = new LinkedList<>();
+    Queue<Integer> listLengthShips = new LinkedList<>();
 
 
     @FXML
@@ -63,16 +63,16 @@ public class BattleshipBoardController implements Initializable {
     private Label shipsTitle;
 
     public void addLengthShipsToQueue() {
-        l.add(4);
-        l.add(3);
-        l.add(3);
-        l.add(2);
-        l.add(2);
-        l.add(2);
-        l.add(1);
-        l.add(1);
-        l.add(1);
-        l.add(1);
+        listLengthShips.add(4);
+        listLengthShips.add(3);
+        listLengthShips.add(3);
+        listLengthShips.add(2);
+        listLengthShips.add(2);
+        listLengthShips.add(2);
+        listLengthShips.add(1);
+        listLengthShips.add(1);
+        listLengthShips.add(1);
+        listLengthShips.add(1);
     }
 
     public void addPaneToGridPanePlayerAttack(GridPane gridPane) {
@@ -111,6 +111,12 @@ public class BattleshipBoardController implements Initializable {
         shoot.shootArea(point, user);
     }
 
+    public void shootComputer() {
+        RandomPoint randomPoint = new RandomPoint();
+        shoot.shootArea(randomPoint.generateRandomPoint(), computer);
+    }
+
+
     public void addShipsPlayerBoardClick(MouseEvent e) {
 
         Node source = (Node) e.getSource();
@@ -120,29 +126,26 @@ public class BattleshipBoardController implements Initializable {
         addShipsPlayer(x, y);
     }
 
-    public void addShipsPlayer(Integer x, Integer y) {
-
-        if (l.size() > 0) {
-            int length = l.peek();
+    public boolean addShipsPlayer(Integer x, Integer y) {
+        if (listLengthShips.size() > 0) {
+            int length = listLengthShips.peek();
             if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
                 if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerTmpListPoints()))) {
-                    System.out.println("Dodano " + length + " dlugosciowy statek");
+                    showPlayerShipsOnPlayerBoard();
+                    System.out.println("Add " + length + " lengths ship");
                 }
                 listPlayerPoints.clearPointsToTmpListPoints();
                 checkerShip.counterShipPoints();
-                l.remove();
+                listLengthShips.remove();
             }
         } else {
-            System.out.println("Dodano wszystkie statki");
-
-            for(Ship ship : listShips.getPlayerListShips()){
-                System.out.println(ship);
-            }
+            System.out.println("Add all ships");
+            return true;
         }
-
+        return false;
     }
 
-    public void randomShipsComputer(int lengthShips, int howShips) {
+    public boolean randomShipsComputer(int lengthShips, int howShips) {
         RandomPoint randomPoint = new RandomPoint();
         int i = 0;
         while (i < howShips) {
@@ -156,13 +159,15 @@ public class BattleshipBoardController implements Initializable {
             }
 
         }
-
+        return true;
     }
 
-    public void showPlayerPoints() {
+    public void showPlayerShipsOnPlayerBoard() {
         for (Ship ship : listShips.getPlayerListShips()) {
             for (Point point : ship.getShipPoints()) {
-                System.out.println(point);
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: SILVER;");
+                playerBoard.add(pane, point.getX(), point.getY());
             }
         }
     }
@@ -188,6 +193,7 @@ public class BattleshipBoardController implements Initializable {
             }
         }
 
+        shootComputer();
     }
 
 }
