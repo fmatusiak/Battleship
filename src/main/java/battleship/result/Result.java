@@ -5,8 +5,8 @@ import battleship.ship.ListShips;
 public class Result {
     ListShips listShips;
 
-    int shipsPlayer = 0;
-    int shipsComputer = 0;
+    int shipsPlayer;
+    int shipsComputer;
 
     public Result(ListShips listShips) {
         this.listShips = listShips;
@@ -24,5 +24,13 @@ public class Result {
 
     public int getShipsComputer() {
         return shipsComputer;
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "shipsPlayer=" + shipsPlayer +
+                ", shipsComputer=" + shipsComputer +
+                '}';
     }
 }
