@@ -14,17 +14,20 @@ public class Shoot {
         checkerShoot = new CheckerShoot(listShips);
     }
 
-    public int shootArea(Point point, Player enemyPlayer) {
-        int hitOrSunkShip = checkerShoot.checkAttackPoint(point, enemyPlayer);
+    public int shootArea(Point point, Player player) {
+        int hitOrSunkShip = checkerShoot.checkAttackPoint(point, player);
 
         if (hitOrSunkShip == 1) {
             System.out.println("Hit");
+            player.addCounterHitPlayer();
             return 1;
         } else if (hitOrSunkShip == 2) {
             System.out.println("Sunk");
+            player.addCounterSunkPlayer();
             return 2;
         } else if (hitOrSunkShip == 0) {
             System.out.println("Miss");
+            player.addCounterMissPlayer();
             return 0;
         }
         return -1;
