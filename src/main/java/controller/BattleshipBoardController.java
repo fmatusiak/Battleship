@@ -162,9 +162,10 @@ public class BattleshipBoardController implements Initializable {
                 pane.setStyle("-fx-background-color: BLUE;");
                 playerBoard.add(pane, point.getX(), point.getY());
             }
+            return true;
         }
 
-        return true;
+        return false;
     }
 
     public boolean addShipsPlayerBoardClick(MouseEvent e) {
