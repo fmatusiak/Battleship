@@ -245,13 +245,10 @@ public class BattleshipBoardController implements Initializable {
         computerBoard.add(pane, point.getX(), point.getY());
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         addPaneToGridPanePlayer(playerBoard);
         addLengthShipsToQueue();
-
-
     }
 
 }

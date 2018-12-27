@@ -1,5 +1,6 @@
 package battleship.gui;
 
+import battleship.message.Message;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,5 +22,8 @@ public class Board extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        Message message = new Message();
+        message.showMessageNewGame();
     }
 }
