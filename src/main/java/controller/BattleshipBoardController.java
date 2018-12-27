@@ -70,6 +70,7 @@ public class BattleshipBoardController implements Initializable {
 
     public boolean newGame() {
         playerBoard.setManaged(false);
+        message.showMessageShootUser();
         addRandomShipsComputer();
         addPaneToGridPanePlayerAttack(playerAttackBoard);
         return true;

@@ -2,23 +2,31 @@ package battleship.message;
 
 import battleship.result.CheckerResult;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 
 public class Message {
     static final String WINNER_USER = "WINNER USER";
     static final String WINNER_COMPUTER = "WINNER COMPUTER";
+    static final String SHOOT_USER_INFORMATION = "Your ships are already set.\n" +
+            "Now attack the opponent's ships on the panel";
     static final String NEW_GAME_INFORMATION = "Select your ships on the Player panel.\n" +
             "Start with one 4-point ship,\n then add 2 x 3-point ships, \n then 3 x 2-point ships , \n  finally 4 x 1-point ships.";
 
     CheckerResult checkerResult;
 
-    public Message(){
+    public Message() {
 
     }
 
     public Message(CheckerResult checkerResult) {
         this.checkerResult = checkerResult;
+    }
+
+    public void showMessageShootUser(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("YOUR SHIPS ARE ALREADY");
+        alert.setHeaderText("INSTRUCTION");
+        alert.setContentText(SHOOT_USER_INFORMATION);
+        alert.showAndWait();
     }
 
     public void showMessageNewGame() {
