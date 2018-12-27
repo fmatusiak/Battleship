@@ -37,6 +37,7 @@ public class CheckerPoint {
         return false;
     }
 
+    @SuppressWarnings("Duplicates")
     public boolean checkPointsDown(Point point, int howPoints) {
 
         //CHECK DOWN
@@ -59,6 +60,7 @@ public class CheckerPoint {
         return false;
     }
 
+    @SuppressWarnings("Duplicates")
     public boolean checkPointsUp(Point point, int howPoints) {
         //CHECK UP
         for (int i = 0; i < howPoints; i++) {
@@ -80,6 +82,7 @@ public class CheckerPoint {
         return false;
     }
 
+    @SuppressWarnings("Duplicates")
     public boolean checkPointsLeft(Point point, int howPoints) {
         //CHECK LEFT
         for (int i = 0; i < howPoints; i++) {
@@ -100,6 +103,7 @@ public class CheckerPoint {
         return false;
     }
 
+    @SuppressWarnings("Duplicates")
     public boolean checkPointsRight(Point point, int howPoints) {
         //CHECK RIGHT
         for (int i = 0; i < howPoints; i++) {
