@@ -12,18 +12,20 @@ public class Message {
         this.checkerResult = checkerResult;
     }
 
-    public void showMessageWinner() {
+    public boolean showMessageWinner() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("END THE GAME");
         alert.setHeaderText("RESULTS");
         if (checkerResult.checkWhoIsWin() == 1) {
             alert.setContentText(WINNER_USER);
             alert.showAndWait();
+            return true;
         } else if (checkerResult.checkWhoIsWin() == 2) {
             alert.setContentText(WINNER_COMPUTER);
             alert.showAndWait();
+            return true;
         }
-
+        return false;
     }
 
 }

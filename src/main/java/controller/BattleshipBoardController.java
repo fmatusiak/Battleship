@@ -42,8 +42,6 @@ public class BattleshipBoardController implements Initializable {
 
     Queue<Integer> listLengthShips = new LinkedList<>();
 
-    private boolean moveUser = true;
-
     @FXML
     private Pane mainMenuPane;
 
@@ -115,7 +113,6 @@ public class BattleshipBoardController implements Initializable {
     public boolean shootUser(MouseEvent e) {
         showPlayerShipsOnPlayerBoard();
 
-
         Node source = (Node) e.getSource();
         Integer x = GridPane.getColumnIndex(source);
         Integer y = GridPane.getRowIndex(source);
@@ -137,12 +134,14 @@ public class BattleshipBoardController implements Initializable {
             showComputerShipsMissed(point);
         }
 
-        message.showMessageWinner();
+        if (message.showMessageWinner()) {
 
-        shootComputer();
+        } else {
+            shootComputer();
+        }
 
         return true;
-}
+    }
 
     public boolean shootComputer() {
         RandomPoint randomPoint = new RandomPoint();
