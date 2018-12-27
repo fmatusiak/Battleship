@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ResourceBundle;
@@ -41,6 +42,7 @@ public class BattleshipBoardController implements Initializable {
     Player computer = new Player("computer");
 
     Queue<Integer> listLengthShips = new LinkedList<>();
+    ArrayList<Point> computerRandomPoints = new ArrayList<>();
 
     @FXML
     private Pane mainMenuPane;
@@ -69,7 +71,6 @@ public class BattleshipBoardController implements Initializable {
     public boolean newGame() {
         playerBoard.setManaged(false);
         addRandomShipsComputer();
-        showComputerShipsOnComputerBoard();
         addPaneToGridPanePlayerAttack(playerAttackBoard);
         return true;
     }
@@ -135,7 +136,7 @@ public class BattleshipBoardController implements Initializable {
         }
 
         if (message.showMessageWinner()) {
-
+            System.out.println("End the game");
         } else {
             shootComputer();
         }
@@ -146,20 +147,25 @@ public class BattleshipBoardController implements Initializable {
     public boolean shootComputer() {
         RandomPoint randomPoint = new RandomPoint();
         Point point = randomPoint.generateRandomPoint();
-        int scoreShootComputer = shoot.shootArea(point, computer);
 
-        if (scoreShootComputer == 2 || scoreShootComputer == 1) {
-            Pane pane = new Pane();
-            pane.setStyle("-fx-background-color: BLACK;");
-            playerBoard.add(pane, point.getX(), point.getY());
-        } else {
-            Pane pane = new Pane();
-            pane.setStyle("-fx-background-color: BLUE;");
-            playerBoard.add(pane, point.getX(), point.getY());
+        while (!computerRandomPoints.contains(point)) {
+            computerRandomPoints.add(point);
+
+            int scoreShootComputer = shoot.shootArea(point, computer);
+
+            if (scoreShootComputer == 2 || scoreShootComputer == 1) {
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: BLACK;");
+                playerBoard.add(pane, point.getX(), point.getY());
+            } else {
+                Pane pane = new Pane();
+                pane.setStyle("-fx-background-color: BLUE;");
+                playerBoard.add(pane, point.getX(), point.getY());
+            }
         }
+
         return true;
     }
-
 
     public boolean addShipsPlayerBoardClick(MouseEvent e) {
         Node source = (Node) e.getSource();
