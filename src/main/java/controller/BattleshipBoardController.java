@@ -1,5 +1,6 @@
 package controller;
 
+import battleship.message.Message;
 import battleship.players.Player;
 import battleship.point.CheckerPoint;
 import battleship.point.ListPlayerPoints;
@@ -34,6 +35,7 @@ public class BattleshipBoardController implements Initializable {
     Shoot shoot = new Shoot(listShips);
     Result result = new Result(listShips);
     CheckerResult checkerResult = new CheckerResult(result);
+    Message message = new Message(checkerResult);
 
     Player user = new Player("user");
     Player computer = new Player("computer");
@@ -135,10 +137,9 @@ public class BattleshipBoardController implements Initializable {
             showComputerShipsMissed(point);
         }
 
-        checkerResult.checkWhoIsWin();
+        message.showMessageWinner();
 
         shootComputer();
-
 
         return true;
 }
