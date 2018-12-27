@@ -8,9 +8,11 @@ public class CheckerResult {
     }
 
     public int checkWhoIsWin() {
-        if (result.getShipsComputer() == 0) {
+        if (result.getCountShipsComputer() == 0) {
+            System.out.println("Winner User");
             return 1;
-        } else if (result.getShipsPlayer() == 0) {
+        } else if (result.getCountShipsUser() == 0) {
+            System.out.println("Winner Computer");
             return 2;
         }
         return 0;

@@ -67,18 +67,12 @@ public class BattleshipBoardController implements Initializable {
     private Label shipsTitle;
 
     public boolean newGame() {
+        playerBoard.setManaged(false);
         addRandomShipsComputer();
         showComputerShipsOnComputerBoard();
         addPaneToGridPanePlayerAttack(playerAttackBoard);
         return true;
     }
-
-    public boolean movePlayer() {
-        boolean tmp = moveUser;
-        moveUser = !tmp;
-        return moveUser;
-    }
-
 
     public void addLengthShipsToQueue() {
         listLengthShips.add(4);
@@ -118,38 +112,36 @@ public class BattleshipBoardController implements Initializable {
 
     public boolean shootUser(MouseEvent e) {
         showPlayerShipsOnPlayerBoard();
-        result.updateCountShipsPlayer();
 
-        System.out.println(moveUser);
 
-        if (movePlayer()) {
-            Node source = (Node) e.getSource();
-            Integer x = GridPane.getColumnIndex(source);
-            Integer y = GridPane.getRowIndex(source);
+        Node source = (Node) e.getSource();
+        Integer x = GridPane.getColumnIndex(source);
+        Integer y = GridPane.getRowIndex(source);
 
-            Pane pane = new Pane();
-            pane.setStyle("-fx-background-color: SILVER");
+        Pane pane = new Pane();
+        pane.setStyle("-fx-background-color: SILVER");
 
-            Point point = new Point(x, y);
+        Point point = new Point(x, y);
 
-            playerAttackBoard.add(pane, point.getX(), point.getY());
+        playerAttackBoard.add(pane, point.getX(), point.getY());
 
-            int scoreShoot = shoot.shootArea(point, user);
+        int scoreShoot = shoot.shootArea(point, user);
 
-            if (scoreShoot == 1 || scoreShoot == 2) {
-                System.out.println(result);
-                showComputerShipsHitOrSunk(point);
-            } else {
-                System.out.println(result);
-                showComputerShipsMissed(point);
-            }
+        if (scoreShoot == 1 || scoreShoot == 2) {
+            System.out.println(result);
+            showComputerShipsHitOrSunk(point);
         } else {
-            shootComputer();
-            showPlayerShipsOnPlayerBoard();
+            System.out.println(result);
+            showComputerShipsMissed(point);
         }
 
+        checkerResult.checkWhoIsWin();
+
+        shootComputer();
+
+
         return true;
-    }
+}
 
     public boolean shootComputer() {
         RandomPoint randomPoint = new RandomPoint();
