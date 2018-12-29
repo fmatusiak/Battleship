@@ -21,7 +21,7 @@ public class Message {
         this.checkerResult = checkerResult;
     }
 
-    public void showMessageShootUser(){
+    public void showMessageShootUser() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("YOUR SHIPS ARE ALREADY");
         alert.setHeaderText("INSTRUCTION");

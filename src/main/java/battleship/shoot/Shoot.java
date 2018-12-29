@@ -1,7 +1,7 @@
 package battleship.shoot;
 
-import battleship.point.Point;
 import battleship.players.Player;
+import battleship.point.Point;
 import battleship.ship.ListShips;
 
 public class Shoot {

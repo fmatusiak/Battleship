@@ -12,6 +12,10 @@ public class CheckerPoint {
         this.listPlayerPoints = listPlayerPoints;
     }
 
+    public void clearTmpMoveCountPoint() {
+        tmpMoveCountPoint = 0;
+    }
+
     public boolean checkPointNotBusy(Point point, ArrayList listPlayerPoints) {
         return listPlayerPoints.contains(point);
     }
@@ -34,7 +38,6 @@ public class CheckerPoint {
 
     public boolean checkFirstPlayerPoint(Point point) {
         if (listPlayerPoints.getPlayerTmpListPoints().size() == 0) {
-            System.out.println(point.getY() + " : " + point.getY());
             listPlayerPoints.addPointToPlayerList(point);
             tmpMoveCountPoint++;
             return true;

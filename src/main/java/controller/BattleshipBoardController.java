@@ -182,6 +182,7 @@ public class BattleshipBoardController implements Initializable {
             if (checkerShip.checkNewShipPlayer(length, new Point(x, y))) {
                 if (listShips.addShipPlayer(new Ship(length, listPlayerPoints.getPlayerTmpListPoints()))) {
                     showPlayerShipsOnPlayerBoard();
+                    checkerPoint.clearTmpMoveCountPoint();
                     System.out.println("Add " + length + " lengths ship");
                 }
                 listPlayerPoints.clearPointsToTmpListPoints();
