@@ -20,38 +20,59 @@ public class CheckerPoint {
         if (checkPointNotBusy(point, listPlayerPoints.getPlayerListPoints())) {
             tmpMoveCountPoint = 0;
             return false;
-        } else {
-            if (listPlayerPoints.getPlayerTmpListPoints().size() == 0) {
-                System.out.println(point.getY() + " : " + point.getY());
-                listPlayerPoints.addPointToPlayerList(point);
-                tmpMoveCountPoint++;
-                return true;
-            } else {
-                Point tmpMovePointBackPlayer = listPlayerPoints.getPlayerTmpListPoints().get(tmpMoveCountPoint - 1);
-                int tmpMovePointPlayerX = tmpMovePointBackPlayer.getX();
-                int tmpMovePointPlayerY = tmpMovePointBackPlayer.getY();
-
-                if ((point.getX() == tmpMovePointPlayerX + 1) && (point.getY() == tmpMovePointPlayerY)) {
-                    listPlayerPoints.addPointToPlayerList(point);
-                    tmpMoveCountPoint++;
-                    return true;
-                } else if (point.getX() == (tmpMovePointPlayerX - 1) && (point.getY() == tmpMovePointPlayerY)) {
-                    listPlayerPoints.addPointToPlayerList(point);
-                    tmpMoveCountPoint++;
-                    return true;
-                } else if (point.getY() == (tmpMovePointPlayerY + 1) && (point.getX() == tmpMovePointPlayerX)) {
-                    listPlayerPoints.addPointToPlayerList(point);
-                    tmpMoveCountPoint++;
-                    return true;
-                } else if (point.getY() == (tmpMovePointPlayerY - 1) && (point.getX() == tmpMovePointPlayerX)) {
-                    listPlayerPoints.addPointToPlayerList(point);
-                    tmpMoveCountPoint++;
-                    return true;
-                }
-            }
-
         }
 
+        if (checkFirstPlayerPoint(point)) {
+            return true;
+        } else if (checkSetPointPlayerInPositionX(point)) {
+            return true;
+        } else if (checkSetPointPlayerInPositionY(point)) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkFirstPlayerPoint(Point point) {
+        if (listPlayerPoints.getPlayerTmpListPoints().size() == 0) {
+            System.out.println(point.getY() + " : " + point.getY());
+            listPlayerPoints.addPointToPlayerList(point);
+            tmpMoveCountPoint++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkSetPointPlayerInPositionX(Point point) {
+        Point tmpMovePointBackPlayer = listPlayerPoints.getPlayerTmpListPoints().get(tmpMoveCountPoint - 1);
+        int tmpMovePointPlayerX = tmpMovePointBackPlayer.getX();
+        int tmpMovePointPlayerY = tmpMovePointBackPlayer.getY();
+
+        if ((point.getX() == tmpMovePointPlayerX + 1) && (point.getY() == tmpMovePointPlayerY)) {
+            listPlayerPoints.addPointToPlayerList(point);
+            tmpMoveCountPoint++;
+            return true;
+        } else if (point.getX() == (tmpMovePointPlayerX - 1) && (point.getY() == tmpMovePointPlayerY)) {
+            listPlayerPoints.addPointToPlayerList(point);
+            tmpMoveCountPoint++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkSetPointPlayerInPositionY(Point point) {
+        Point tmpMovePointBackPlayer = listPlayerPoints.getPlayerTmpListPoints().get(tmpMoveCountPoint - 1);
+        int tmpMovePointPlayerX = tmpMovePointBackPlayer.getX();
+        int tmpMovePointPlayerY = tmpMovePointBackPlayer.getY();
+
+        if (point.getY() == (tmpMovePointPlayerY + 1) && (point.getX() == tmpMovePointPlayerX)) {
+            listPlayerPoints.addPointToPlayerList(point);
+            tmpMoveCountPoint++;
+            return true;
+        } else if (point.getY() == (tmpMovePointPlayerY - 1) && (point.getX() == tmpMovePointPlayerX)) {
+            listPlayerPoints.addPointToPlayerList(point);
+            tmpMoveCountPoint++;
+            return true;
+        }
         return false;
     }
 
