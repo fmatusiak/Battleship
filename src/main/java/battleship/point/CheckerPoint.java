@@ -95,8 +95,6 @@ public class CheckerPoint {
 
     @SuppressWarnings("Duplicates")
     public boolean checkPointsDown(Point point, int howPoints) {
-
-        //CHECK DOWN
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointDown = new Point(point.getX(), point.getY() - i);
 
@@ -118,7 +116,6 @@ public class CheckerPoint {
 
     @SuppressWarnings("Duplicates")
     public boolean checkPointsUp(Point point, int howPoints) {
-        //CHECK UP
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointUp = new Point(point.getX(), point.getY() + i);
 
@@ -140,7 +137,6 @@ public class CheckerPoint {
 
     @SuppressWarnings("Duplicates")
     public boolean checkPointsLeft(Point point, int howPoints) {
-        //CHECK LEFT
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointLeft = new Point(point.getX() - i, point.getY());
 
@@ -161,7 +157,6 @@ public class CheckerPoint {
 
     @SuppressWarnings("Duplicates")
     public boolean checkPointsRight(Point point, int howPoints) {
-        //CHECK RIGHT
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointRight = new Point(point.getX() + i, point.getY());
 

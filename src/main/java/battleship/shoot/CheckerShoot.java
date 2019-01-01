@@ -32,7 +32,7 @@ public class CheckerShoot {
 
             }
             return 0;
-        } else if (player.getPlayerId().equals("user")) {
+        } else {
             for (Ship ship : listShips.getComputerListShips()) {
                 if (ship.getShipPoints().contains(point)) {
                     if (ship.removeShipPoint(point)) {
@@ -50,9 +50,8 @@ public class CheckerShoot {
             }
             return 0;
         }
-        return -1;
-    }
 
+    }
 
     public boolean checkHitOrSunk(Ship ship) {
         return ship.getShipPoints().size() == 0;
