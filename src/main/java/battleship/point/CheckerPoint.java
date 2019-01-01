@@ -24,9 +24,7 @@ public class CheckerPoint {
         if (checkPointNotBusy(point, listPlayerPoints.getPlayerListPoints())) {
             tmpMoveCountPoint = 0;
             return false;
-        }
-
-        if (checkFirstPlayerPoint(point)) {
+        } else if (checkFirstPlayerPoint(point)) {
             return true;
         } else if (checkSetPointPlayerInPositionX(point)) {
             return true;
