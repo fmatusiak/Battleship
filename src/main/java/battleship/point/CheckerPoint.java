@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class CheckerPoint {
 
-    ListPlayerPoints listPlayerPoints;
-    ArrayList<Point> tmpPoints = new ArrayList();
+    private ListPlayerPoints listPlayerPoints;
+    private ArrayList<Point> tmpPoints = new ArrayList();
     private int tmpMoveCountPoint = 0;
 
     public CheckerPoint(ListPlayerPoints listPlayerPoints) {
