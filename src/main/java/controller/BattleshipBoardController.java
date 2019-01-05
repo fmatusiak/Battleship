@@ -166,7 +166,6 @@ public class BattleshipBoardController implements Initializable {
             }
             return true;
         }
-
         return false;
     }
 
