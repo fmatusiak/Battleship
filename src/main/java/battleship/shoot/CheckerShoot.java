@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class CheckerShoot {
 
-    ListShips listShips;
+    private ListShips listShips;
 
     public CheckerShoot(ListShips listShips) {
         this.listShips = listShips;
