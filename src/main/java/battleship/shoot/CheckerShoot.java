@@ -5,6 +5,8 @@ import battleship.point.Point;
 import battleship.ship.ListShips;
 import battleship.ship.Ship;
 
+import java.util.ArrayList;
+
 public class CheckerShoot {
 
     ListShips listShips;
@@ -13,44 +15,31 @@ public class CheckerShoot {
         this.listShips = listShips;
     }
 
-    public int checkAttackPoint(Point point, Player player) {
-
-        if (player.getPlayerId().equals("computer")) {
-            for (Ship ship : listShips.getPlayerListShips()) {
-                if (ship.getShipPoints().contains(point)) {
-                    if (ship.removeShipPoint(point)) {
-                        if (checkHitOrSunk(ship)) {
-                            listShips.removeShipPlayer(ship);
-                            return 2;
-                        } else {
-                            return 1;
-                        }
-
+    private int attackPoint(Point point, ArrayList<Ship> listPlayerShips) {
+        for (Ship ship : listPlayerShips) {
+            if (ship.getShipPoints().contains(point)) {
+                if (ship.removeShipPoint(point)) {
+                    if (checkHitOrSunk(ship)) {
+                        listPlayerShips.remove(ship);
+                        return 2;
+                    } else {
+                        return 1;
                     }
 
                 }
 
             }
-            return 0;
-        } else {
-            for (Ship ship : listShips.getComputerListShips()) {
-                if (ship.getShipPoints().contains(point)) {
-                    if (ship.removeShipPoint(point)) {
-                        if (checkHitOrSunk(ship)) {
-                            listShips.removeShipComputer(ship);
-                            return 2;
-                        } else {
-                            return 1;
-                        }
 
-                    }
-
-                }
-
-            }
-            return 0;
         }
+        return 0;
+    }
 
+    public int checkAttackPoint(Point point, Player player) {
+        if (player.getPlayerId().equals("computer")) {
+            return attackPoint(point, listShips.getPlayerListShips());
+        } else {
+            return attackPoint(point, listShips.getComputerListShips());
+        }
     }
 
     public boolean checkHitOrSunk(Ship ship) {
