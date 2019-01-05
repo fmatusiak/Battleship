@@ -42,6 +42,7 @@ public class Message {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("END THE GAME");
         alert.setHeaderText("RESULTS");
+
         if (checkerResult.checkWhoIsWin() == 1) {
             alert.setContentText(WINNER_USER);
             alert.showAndWait();

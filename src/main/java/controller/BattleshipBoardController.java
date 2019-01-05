@@ -137,7 +137,9 @@ public class BattleshipBoardController implements Initializable {
         }
 
         if (message.showMessageWinner()) {
-            System.out.println("End the game");
+            playerAttackBoard.setManaged(false);
+            playerBoard.setManaged(false);
+            computerBoard.setManaged(false);
         } else {
             shootComputer();
         }
