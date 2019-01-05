@@ -29,20 +29,20 @@ import java.util.ResourceBundle;
 
 public class BattleshipBoardController implements Initializable {
 
-    ListPlayerPoints listPlayerPoints = new ListPlayerPoints();
-    CheckerPoint checkerPoint = new CheckerPoint(listPlayerPoints);
-    CheckerShip checkerShip = new CheckerShip(checkerPoint);
-    ListShips listShips = new ListShips();
-    Shoot shoot = new Shoot(listShips);
-    Result result = new Result(listShips);
-    CheckerResult checkerResult = new CheckerResult(result);
-    Message message = new Message(checkerResult);
+    private ListPlayerPoints listPlayerPoints = new ListPlayerPoints();
+    private CheckerPoint checkerPoint = new CheckerPoint(listPlayerPoints);
+    private CheckerShip checkerShip = new CheckerShip(checkerPoint);
+    private ListShips listShips = new ListShips();
+    private Shoot shoot;
+    private Result result;
+    private CheckerResult checkerResult;
+    private Message message;
 
-    Player user = new Player("user");
-    Player computer = new Player("computer");
+    private Player user;
+    private Player computer;
 
-    Queue<Integer> listLengthShips = new LinkedList<>();
-    ArrayList<Point> computerRandomPoints = new ArrayList<>();
+    private Queue<Integer> listLengthShips = new LinkedList<>();
+    private ArrayList<Point> computerRandomPoints = new ArrayList<>();
 
     @FXML
     private Pane mainMenuPane;
@@ -69,7 +69,14 @@ public class BattleshipBoardController implements Initializable {
     private Label shipsTitle;
 
     public boolean newGame() {
-        playerBoard.setManaged(false);
+        shoot = new Shoot(listShips);
+        result = new Result(listShips);
+        checkerResult = new CheckerResult(result);
+        message = new Message(checkerResult);
+        user = new Player("user");
+        computer = new Player("computer");
+
+        playerBoard.setDisable(true);
         message.showMessageShootUser();
         addRandomShipsComputer();
         addPaneToGridPanePlayerAttack(playerAttackBoard);
@@ -137,8 +144,8 @@ public class BattleshipBoardController implements Initializable {
         }
 
         if (message.showMessageWinner()) {
-            playerAttackBoard.setManaged(false);
-            computerBoard.setManaged(false);
+            playerAttackBoard.setDisable(true);
+            computerBoard.setDisable(true);
         } else {
             shootComputer();
         }
