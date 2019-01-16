@@ -16,7 +16,7 @@ public class CheckerPoint {
         tmpMoveCountPoint = 0;
     }
 
-    public boolean checkPointNotBusy(Point point, ArrayList listPlayerPoints) {
+    private boolean checkPointNotBusy(Point point, ArrayList listPlayerPoints) {
         return listPlayerPoints.contains(point);
     }
 
@@ -34,7 +34,7 @@ public class CheckerPoint {
         return false;
     }
 
-    public boolean checkFirstPlayerPoint(Point point) {
+    private boolean checkFirstPlayerPoint(Point point) {
         if (listPlayerPoints.getPlayerTmpListPoints().size() == 0) {
             listPlayerPoints.addPointToPlayerList(point);
             tmpMoveCountPoint++;
@@ -43,7 +43,7 @@ public class CheckerPoint {
         return false;
     }
 
-    public boolean checkSetPointPlayerInPositionX(Point point) {
+    private boolean checkSetPointPlayerInPositionX(Point point) {
         Point tmpMovePointBackPlayer = listPlayerPoints.getPlayerTmpListPoints().get(tmpMoveCountPoint - 1);
         int tmpMovePointPlayerX = tmpMovePointBackPlayer.getX();
         int tmpMovePointPlayerY = tmpMovePointBackPlayer.getY();
@@ -60,7 +60,7 @@ public class CheckerPoint {
         return false;
     }
 
-    public boolean checkSetPointPlayerInPositionY(Point point) {
+    private boolean checkSetPointPlayerInPositionY(Point point) {
         Point tmpMovePointBackPlayer = listPlayerPoints.getPlayerTmpListPoints().get(tmpMoveCountPoint - 1);
         int tmpMovePointPlayerX = tmpMovePointBackPlayer.getX();
         int tmpMovePointPlayerY = tmpMovePointBackPlayer.getY();
@@ -92,7 +92,7 @@ public class CheckerPoint {
     }
 
     @SuppressWarnings("Duplicates")
-    public boolean checkPointsDown(Point point, int howPoints) {
+    private boolean checkPointsDown(Point point, int howPoints) {
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointDown = new Point(point.getX(), point.getY() - i);
 
@@ -113,7 +113,7 @@ public class CheckerPoint {
     }
 
     @SuppressWarnings("Duplicates")
-    public boolean checkPointsUp(Point point, int howPoints) {
+    private boolean checkPointsUp(Point point, int howPoints) {
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointUp = new Point(point.getX(), point.getY() + i);
 
@@ -134,7 +134,7 @@ public class CheckerPoint {
     }
 
     @SuppressWarnings("Duplicates")
-    public boolean checkPointsLeft(Point point, int howPoints) {
+    private boolean checkPointsLeft(Point point, int howPoints) {
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointLeft = new Point(point.getX() - i, point.getY());
 
@@ -154,7 +154,7 @@ public class CheckerPoint {
     }
 
     @SuppressWarnings("Duplicates")
-    public boolean checkPointsRight(Point point, int howPoints) {
+    private boolean checkPointsRight(Point point, int howPoints) {
         for (int i = 0; i < howPoints; i++) {
             Point tmpPointRight = new Point(point.getX() + i, point.getY());
 

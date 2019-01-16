@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8be810-41bf-43d9-9327-fcb6f3afdf70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/battleship/BattleshipTestSuite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/battleship/BattleshipTestSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/battleship/BattleshipTestSuite.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -48,28 +48,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/battleship/result/Result.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/battleship/shoot/CheckerShoot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding>
-                <element signature="e#1196#1197#0" expanded="true" />
-                <element signature="e#1251#1252#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/battleship/gui/Board.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -81,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/battleship/BattleshipTestSuite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="89" column="33" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
+            <state relative-caret-position="351">
+              <caret line="186" column="41" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,10 +69,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/battleship/ship/ListShips.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/battleship/ship/CheckerShip.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+            <state relative-caret-position="-1976">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -162,11 +158,11 @@
         <option value="$PROJECT_DIR$/src/main/java/battleship/gui/Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/battleship/ship/CheckerShip.java" />
         <option value="$PROJECT_DIR$/src/main/java/battleship/shoot/Shoot.java" />
-        <option value="$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/battleship/shoot/CheckerShoot.java" />
         <option value="$PROJECT_DIR$/src/main/java/battleship/message/Message.java" />
         <option value="$PROJECT_DIR$/src/main/java/battleship/point/Point.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/BattleshipBoardController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java" />
         <option value="$PROJECT_DIR$/src/test/java/battleship/BattleshipTestSuite.java" />
       </list>
     </option>
@@ -314,7 +310,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547637692242" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547640990605" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../kodilla-course/kodilla-challenges" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -333,7 +329,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BattleshipTestSuite">
+  <component name="RunManager" selected="JUnit.BattleshipTestSuite.testAddShipWrongComputer">
     <configuration name="BattleshipTestSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.battleship.Battleship.test" />
       <extension name="coverage">
@@ -348,7 +344,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleshipTestSuite.testShootHitLengthShipComputer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleshipTestSuite.testAddShipComputer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.battleship.Battleship.test" />
       <extension name="coverage">
         <pattern>
@@ -358,13 +354,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="battleship" />
       <option name="MAIN_CLASS_NAME" value="battleship.BattleshipTestSuite" />
-      <option name="METHOD_NAME" value="testShootHitLengthShipComputer" />
+      <option name="METHOD_NAME" value="testAddShipComputer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleshipTestSuite.testShootHitShipPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleshipTestSuite.testAddShipPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.battleship.Battleship.test" />
       <extension name="coverage">
         <pattern>
@@ -374,13 +370,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="battleship" />
       <option name="MAIN_CLASS_NAME" value="battleship.BattleshipTestSuite" />
-      <option name="METHOD_NAME" value="testShootHitShipPlayer" />
+      <option name="METHOD_NAME" value="testAddShipPlayer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleshipTestSuite.testShootMissLengthShipComputer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleshipTestSuite.testAddShipWrongComputer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.battleship.Battleship.test" />
       <extension name="coverage">
         <pattern>
@@ -390,13 +386,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="battleship" />
       <option name="MAIN_CLASS_NAME" value="battleship.BattleshipTestSuite" />
-      <option name="METHOD_NAME" value="testShootMissLengthShipComputer" />
+      <option name="METHOD_NAME" value="testAddShipWrongComputer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BattleshipTestSuite.testShootMissShipPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BattleshipTestSuite.testAddShipWrongPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.battleship.Battleship.test" />
       <extension name="coverage">
         <pattern>
@@ -406,7 +402,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="battleship" />
       <option name="MAIN_CLASS_NAME" value="battleship.BattleshipTestSuite" />
-      <option name="METHOD_NAME" value="testShootMissShipPlayer" />
+      <option name="METHOD_NAME" value="testAddShipWrongPlayer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -414,11 +410,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BattleshipTestSuite.testAddShipWrongComputer" />
+        <item itemvalue="JUnit.BattleshipTestSuite.testAddShipWrongPlayer" />
+        <item itemvalue="JUnit.BattleshipTestSuite.testAddShipPlayer" />
+        <item itemvalue="JUnit.BattleshipTestSuite.testAddShipComputer" />
         <item itemvalue="JUnit.BattleshipTestSuite" />
-        <item itemvalue="JUnit.BattleshipTestSuite.testShootMissShipPlayer" />
-        <item itemvalue="JUnit.BattleshipTestSuite.testShootHitShipPlayer" />
-        <item itemvalue="JUnit.BattleshipTestSuite.testShootMissLengthShipComputer" />
-        <item itemvalue="JUnit.BattleshipTestSuite.testShootHitLengthShipComputer" />
       </list>
     </recent_temporary>
   </component>
@@ -449,44 +445,44 @@
       <workItem from="1546534799381" duration="1206000" />
       <workItem from="1546697783944" duration="3595000" />
       <workItem from="1547035743652" duration="35000" />
-      <workItem from="1547635769742" duration="1891000" />
+      <workItem from="1547635769742" duration="5173000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BattleshipTestSuite_testShootPlayer - 2019.01.16 at 12h 09m 40s.xml">
-      <configuration name="BattleshipTestSuite.testShootPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipComputer - 2019.01.16 at 13h 02m 10s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootPlayer - 2019.01.16 at 12h 11m 35s.xml">
-      <configuration name="BattleshipTestSuite.testShootPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipComputer - 2019.01.16 at 13h 02m 46s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootPlayer - 2019.01.16 at 12h 12m 09s.xml">
-      <configuration name="BattleshipTestSuite.testShootPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipComputer - 2019.01.16 at 13h 03m 36s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootPlayer - 2019.01.16 at 12h 13m 53s.xml">
-      <configuration name="BattleshipTestSuite.testShootPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipComputer - 2019.01.16 at 13h 05m 24s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootPlayer - 2019.01.16 at 12h 14m 01s.xml">
-      <configuration name="BattleshipTestSuite.testShootPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipWrongComputer - 2019.01.16 at 13h 07m 27s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipWrongComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShoot1LengthShipPlayer - 2019.01.16 at 12h 15m 25s.xml">
-      <configuration name="BattleshipTestSuite.testShoot1LengthShipPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipWrongComputer - 2019.01.16 at 13h 07m 54s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipWrongComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootHitLengthShipComputer - 2019.01.16 at 12h 17m 54s.xml">
-      <configuration name="BattleshipTestSuite.testShootHitLengthShipComputer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipWrongComputer - 2019.01.16 at 13h 08m 24s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipWrongComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootMissLengthShipComputer - 2019.01.16 at 12h 18m 36s.xml">
-      <configuration name="BattleshipTestSuite.testShootMissLengthShipComputer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipWrongComputer - 2019.01.16 at 13h 10m 07s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipWrongComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootHitShipPlayer - 2019.01.16 at 12h 20m 03s.xml">
-      <configuration name="BattleshipTestSuite.testShootHitShipPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipWrongComputer - 2019.01.16 at 13h 10m 28s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipWrongComputer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BattleshipTestSuite_testShootMissShipPlayer - 2019.01.16 at 12h 20m 29s.xml">
-      <configuration name="BattleshipTestSuite.testShootMissShipPlayer" configurationId="JUnit" />
+    <history-entry file="BattleshipTestSuite_testAddShipPlayer - 2019.01.16 at 13h 14m 06s.xml">
+      <configuration name="BattleshipTestSuite.testAddShipPlayer" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36129000" />
+    <option name="totallyTimeSpent" value="39411000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -531,7 +527,7 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
-      <window_info anchor="right" id="Gradle" order="9" visible="true" weight="0.12219851" />
+      <window_info anchor="right" id="Gradle" order="9" visible="true" weight="0.11686233" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,20 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/ship/CheckerShip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/ship/ListShips.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/battleship/result/CheckerResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -614,13 +596,6 @@
             <element signature="e#1196#1197#0" expanded="true" />
             <element signature="e#1251#1252#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -672,10 +647,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/ship/ListShips.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/ship/CheckerShip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/battleship/point/CheckerPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1976">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/battleship/BattleshipTestSuite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="89" column="33" selection-start-line="89" selection-start-column="33" selection-end-line="89" selection-end-column="33" />
+        <state relative-caret-position="351">
+          <caret line="186" column="41" selection-start-line="186" selection-start-column="41" selection-end-line="186" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
