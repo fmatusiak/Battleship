@@ -9,11 +9,11 @@ public class Result {
         this.listShips = listShips;
     }
 
-    public int getCountShipsComputer(){
+    public int getCountShipsComputer() {
         return listShips.getComputerListShips().size();
     }
 
-    public int getCountShipsUser(){
+    public int getCountShipsUser() {
         return listShips.getPlayerListShips().size();
     }
 

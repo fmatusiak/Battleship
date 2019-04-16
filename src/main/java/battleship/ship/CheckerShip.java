@@ -23,10 +23,9 @@ public class CheckerShip {
         return false;
     }
 
-    public void counterShipPoints(){
+    public void counterShipPoints() {
         counter = 1;
     }
-
 
 
 }

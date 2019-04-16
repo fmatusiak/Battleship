@@ -28,10 +28,7 @@ public class CheckerPoint {
             return true;
         } else if (checkSetPointPlayerInPositionX(point)) {
             return true;
-        } else if (checkSetPointPlayerInPositionY(point)) {
-            return true;
-        }
-        return false;
+        } else return checkSetPointPlayerInPositionY(point);
     }
 
     private boolean checkFirstPlayerPoint(Point point) {

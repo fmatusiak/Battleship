@@ -23,7 +23,7 @@ public class Ship {
         this.shipPoints = new ArrayList(shipPoints);
     }
 
-    public boolean removeShipPoint(Point point){
+    public boolean removeShipPoint(Point point) {
         return shipPoints.remove(point);
     }
 
